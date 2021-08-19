@@ -1,0 +1,11 @@
+/* Tag Styles are automatically applied to all matching tags */
+body {font-family: Arial, Helvetica, sans-serif;}
+h1, h2, h3 {color:darkgreen;}
+p, li {color:darkcyan;}
+table, td, th {border: 1px solid deeppink;}
+
+/* Class Styles can be manually applied anywhere */
+.branding {background-color:cadetblue;}
+
+/* ID Styles can be manually applied to ONE tag */
+#wibble {background-color: black; font-family: 'Courier New', Courier, monospace; color:azure;
