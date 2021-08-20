@@ -14,12 +14,12 @@ const makeChart = ()=>{
             label: 'My Data A',
             backgroundColor: 'rgb(255, 99, 132)',
             borderColor: 'rgb(99, 132, 255)',
-            data: results['dataA'] //[0, 10, 5, 2, 20, 30, 45],
+            data: [0, 10, 5, 2, 20, 30, 45],
         }, {
             label: 'My Data B',
             backgroundColor: 'rgb(99, 132, 255)',
             borderColor: 'rgb(255, 99, 132)',
-            data: results['dataB'] // [10, 5, 2, 20, 30, 45, 0],
+            data: [10, 5, 2, 20, 30, 45, 0],
         }]
     };
     // config
