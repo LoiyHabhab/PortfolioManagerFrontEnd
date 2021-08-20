@@ -6,3 +6,5 @@ const fn = (x, y,)=>{return x+y}
 
 n = fn(4,2)
 console.log(n, complicated)
+// here we inject new content into the web page
+content.innerHTML = complicated
