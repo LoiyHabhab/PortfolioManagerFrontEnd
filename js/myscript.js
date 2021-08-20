@@ -7,4 +7,6 @@ const fn = (x, y,)=>{return x+y}
 n = fn(4,2)
 console.log(n, complicated)
 // here we inject new content into the web page
-content.innerHTML = complicated
+// we use back-ticks for string interpolation
+let some_text = `Address: ${complicated.address} ${complicated.array[2]}`
+content.innerHTML = some_text
