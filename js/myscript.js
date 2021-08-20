@@ -30,6 +30,9 @@ const getData = ()=>{
             // JSON.stringify converts JS objects to JSON text
             let swapi_text = JSON.stringify(data)
             swapi.innerHTML = swapi_text
+            // we can grab any member of the returnd data
+            let n = data['name'] // we use square-bracket syntax rather than dot syntax
+            swname.innerHTML = n
         })
 }
 
