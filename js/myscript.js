@@ -15,6 +15,16 @@ const handleButton = ()=>{console.log('clicked!')}
 btnDoStuff.addEventListener('click', handleButton)
 
 // fetching data from an API end point
-const getData = ()=>{}
+const getData = ()=>{
+    let end_point_url = 'https://swapi.dev/api'
+    let category = 'people'
+    let id = 1
+    // NB fetch is asynchronous
+    fetch(`${end_point_url}/${category}/${id}`)
+        // take the returned json and convert it to a JavaScript object
+        .then(response => response.json())
+
+        .then(data => console.log(data))
+}
 
 btnGetAPI.addEventListener('click', getData)
