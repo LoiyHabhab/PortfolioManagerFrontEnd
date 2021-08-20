@@ -17,8 +17,9 @@ btnDoStuff.addEventListener('click', handleButton)
 // fetching data from an API end point
 const getData = ()=>{
     let end_point_url = 'https://swapi.dev/api'
-    let category = 'people'
-    let id = 1
+    // we can grab whatever is the current value in the form fields
+    let category = swcategory.value //'planets'
+    let id = swid.value // 3
     // NB fetch is asynchronous
     fetch(`${end_point_url}/${category}/${id}`)
         // take the returned json and convert it to a JavaScript object
