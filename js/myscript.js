@@ -10,3 +10,6 @@ console.log(n, complicated)
 // we use back-ticks for string interpolation
 let some_text = `Address: ${complicated.address} ${complicated.array[2]}`
 content.innerHTML = some_text
+// add an event listener to the button
+const handleButton = ()=>{console.log('clicked!')}
+btnDoStuff.addEventListener('click', handleButton)
