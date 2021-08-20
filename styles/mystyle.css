@@ -1,4 +1,5 @@
 /* Tag Styles - automatically apply to matching tags */
+body {font-family: Arial, Helvetica, sans-serif;}
 h3 {color:green; background-color: hotpink;}
 p, li {color:darkcyan;}
 article {background-color: blanchedalmond;}
