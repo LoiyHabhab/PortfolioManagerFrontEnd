@@ -3,6 +3,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 h3 {color:green; background-color: hotpink;}
 p, li {color:darkcyan;}
 article {background-color: blanchedalmond;}
+table, td, th {border: 1px solid deeppink;}
 
 /* Class Styles - manually apply anywhere you like */
 .branding {background-color: cadetblue;}
