@@ -1,7 +1,8 @@
-/* Tag Styles */
+/* Tag Styles - automatically apply to matching tags */
 h3 {color:green; background-color: hotpink;}
-
+p, li {color:darkcyan;}
+article {background-color: blanchedalmond;}
 /* class Styles */
-
+.branding {background-color: cadetblue;}
 
 /* ID Styles */
