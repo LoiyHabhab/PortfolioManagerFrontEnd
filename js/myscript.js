@@ -26,6 +26,10 @@ const getData = ()=>{
         .then((response) => {return response.json()})
         .then((data) => {
             console.log(data)
+            // lets put all the data into the page temporarily
+            // JSON.stringify converts JS objects to JSON text
+            let swapi_text = JSON.stringify(data)
+            swapi.innerHTML = swapi_text
         })
 }
 
