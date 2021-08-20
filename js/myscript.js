@@ -23,9 +23,35 @@ const getData = ()=>{
     // NB fetch is asynchronous
     fetch(`${end_point_url}/${category}/${id}`)
         // take the returned json and convert it to a JavaScript object
-        .then(response => response.json())
-
-        .then(data => console.log(data))
+        .then((response) => {return response.json()})
+        .then((data) => {
+            console.log(data)
+        })
 }
 
 btnGetAPI.addEventListener('click', getData)
+
+
+
+// demo about ECMAScript functions
+function oldWay(params){
+    return params
+}
+
+// a few words about functions
+// now...
+const f = (x)=>{return x*x}
+// we can leave out all the brackets if it's dead simple
+const g = x=>x*x // implicitly returns x*x
+// if there a re NO prarams or more than one, we MUST use the brackets
+const h = ()=>'oh'
+// if there is more than one line in the function body 
+// we MUST have curly braces
+const j = v=>{
+    result = `${v} stuff`
+    return result // explicitly returns something
+}
+
+
+
+
