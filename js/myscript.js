@@ -13,3 +13,8 @@ content.innerHTML = some_text
 // add an event listener to the button
 const handleButton = ()=>{console.log('clicked!')}
 btnDoStuff.addEventListener('click', handleButton)
+
+// fetching data from an API end point
+const getData = ()=>{}
+
+btnGetAPI.addEventListener('click', getData)
