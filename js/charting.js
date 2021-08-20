@@ -35,10 +35,11 @@ const makeChart = ()=>{
 
 // get some API static data
 let results={}
-fetch('http://localhost:8080/api/static_data.json')
-        .then(response => response.json())
-        .then(data => {
-            results = data
-            console.log(results['data'])
-            makeChart()
-        })
+// fetch('http://localhost:8080/api/static_data.json')
+//         .then(response => response.json())
+//         .then(data => {
+//             results = data
+//             console.log(results['data'])
+//             makeChart()
+//         })
+makeChart()
