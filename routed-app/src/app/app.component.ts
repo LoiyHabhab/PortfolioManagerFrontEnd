@@ -11,6 +11,7 @@ export class AppComponent {
   today = new Date()
   user = 'Ada'
   askCookieConsent = true
+  fbImage = 'KenojuakAshevak'
 
   // In ES6 functions that belong to classes are written like this
   agreeCookie(){

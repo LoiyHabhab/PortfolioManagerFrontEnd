@@ -21,6 +21,15 @@
     <p>This site uses cookies, is that ok?</p>
     <button  (click)='agreeCookie()' >Agree</button>
   </ng-container>
+  <hr/>
+  <!-- the <form> tag becomes and NgForm because of the FormsModule -->
+  <form>
+    <!-- here is two-way binding using [()] -->
+    <input placeholder='Facebook image' required [(ngModel)]='fbImage' name='fbImage'/>
+    <br/>
+    <img src='https://graph.facebook.com/{{fbImage}}/picture?type=normal'>
+  </form>
+  <hr/>
   <!-- here is where routed content will appear it is mutually exclusive content-->
   <router-outlet></router-outlet>
 </article>
