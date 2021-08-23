@@ -10,5 +10,8 @@
   <!-- ask the user to agree to cookies -->
   <!-- the () are one-way event binding OUT of the component -->
   <!-- structural directives AWLAYS start with an asterisk * -->
-  <button *ngIf='askCookieConsent' (click)='agreeCookie()' >Agree</button>
+  <ng-container *ngIf='askCookieConsent'>
+    <p>This site uses cookies, is that ok?</p>
+    <button  (click)='agreeCookie()' >Agree</button>
+  </ng-container>
 </article>
