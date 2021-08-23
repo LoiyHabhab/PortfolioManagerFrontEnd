@@ -2,8 +2,8 @@
   <h3>Net Worth</h3>
   <p>Here are the assets that make up the net worth</p>
   <!-- [] injects values into a component (one-way binding into component) -->
-  <app-asset-view [price]=42></app-asset-view>
-  <app-asset-view [price]=12></app-asset-view>
+  <app-asset-view *ngFor="let code of codes" [code]='code.code' [price]=42></app-asset-view>
+  <!-- <app-asset-view [price]=12></app-asset-view>
   <app-asset-view [price]=142></app-asset-view>
-  <app-asset-view [price]=82></app-asset-view>
+  <app-asset-view [price]=82></app-asset-view> -->
 </section>

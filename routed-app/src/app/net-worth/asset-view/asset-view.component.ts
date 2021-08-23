@@ -9,6 +9,7 @@ export class AssetViewComponent implements OnInit {
   // declare data-models for this component
   // if we intend to inject values, the data-model MUST be an @Input
   @Input() price:number = 0
+  @Input() code:string = ''
 
   constructor() { }
 
