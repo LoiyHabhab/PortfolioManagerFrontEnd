@@ -23,12 +23,9 @@ export class NetWorthComponent implements OnInit {
   }
 
   // we can declare methods of this class here
-  modifyParent(value:number){
-    this.total += value
-  }
   handleSortie(value:number){
     // here we can handle the CUSTOM event from the child component
-
+    this.total += value
   }
 
 }
