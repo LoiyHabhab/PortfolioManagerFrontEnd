@@ -21,5 +21,10 @@ export class AssetViewComponent implements OnInit {
     // increment the count
     this.count += 1
   }
-
+  sellStock(){
+    // increment the count
+    if (this.count>0) {
+     this.count -= 1
+    }
+  }
 }
