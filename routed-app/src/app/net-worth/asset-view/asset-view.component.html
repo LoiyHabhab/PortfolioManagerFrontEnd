@@ -2,5 +2,8 @@
   <p>Code {{code}} Price {{price |currency:'C$'}} Count {{count}}</p>
   <p>Price*Count is {{price * count |currency:'C$'}}</p>
   <button (click)='buyStock()'>Buy</button>
-  <button (click)='sellStock()'>Sell</button>
+  <!-- *ngIf will decide if the tag gets rendered or not -->
+  <!-- <button *ngIf='count>0' (click)='sellStock()'>Sell</button> -->
+  <!-- [hidden]  AWLAYS renders, but css-display can be 'none' -->
+  <button [hidden]='!count' (click)='sellStock()'>Sell</button>
 </aside>
