@@ -1,5 +1,6 @@
 <aside>
-  <p>Code {{code}} Price {{price |currency:'C$'}} count {{count}}</p>
+  <p>Code {{code}} Price {{price |currency:'C$'}} Count {{count}}</p>
+  <p>Price*Count is {{price * count |currency:'C$'}}</p>
   <button (click)='buyStock()'>Buy</button>
   <button (click)='sellStock()'>Sell</button>
 </aside>
