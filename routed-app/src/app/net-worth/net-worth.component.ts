@@ -10,11 +10,11 @@ export class NetWorthComponent implements OnInit {
   // declare model data for this component
   total = 0
   codes = [
-    {code:'AMZN'},
-    {code:'NFLX'},
-    {code:'GOOGL'},
-    {code:'FB'},
-    {code:'AAPL'},
+    {code:'AMZN', price:42},
+    {code:'NFLX', price:12},
+    {code:'GOOGL', price:142},
+    {code:'FB', price:82},
+    {code:'AAPL', price:11},
   ]
 
   constructor() { }
