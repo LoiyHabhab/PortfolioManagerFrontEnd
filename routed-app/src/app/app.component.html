@@ -8,5 +8,7 @@
   <p>Welcome {{user}}</p>
   <p>one plus two is {{1+2}}</p>
   <!-- ask the user to agree to cookies -->
-  <button (click)='agreeCookie()' >Agree</button>
+  <!-- the () are one-way event binding OUT of the component -->
+  <!-- structural directives AWLAYS start with an asterisk * -->
+  <button *ngIf='askCookieConsent' (click)='agreeCookie()' >Agree</button>
 </article>
