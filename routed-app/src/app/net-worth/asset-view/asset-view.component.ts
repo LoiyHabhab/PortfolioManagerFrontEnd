@@ -31,7 +31,8 @@ export class AssetViewComponent implements OnInit {
     // increment the count
     if (this.count>0) {
      this.count -= 1
-     this.sellEvent.emit(this.price)
+     this.sortie.emit(-this.price)
+    //  this.sellEvent.emit(this.price)
     }
   }
 }

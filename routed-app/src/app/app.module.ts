@@ -8,6 +8,8 @@ import { CashFlowComponent } from './cash-flow/cash-flow.component';
 import { InsightsComponent } from './insights/insights.component';
 import { NetWorthComponent } from './net-worth/net-worth.component';
 import { AssetViewComponent } from './net-worth/asset-view/asset-view.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { AssetViewComponent } from './net-worth/asset-view/asset-view.component'
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule // the FormsModule is needed for forms
   ],
   providers: [],
   bootstrap: [AppComponent]
