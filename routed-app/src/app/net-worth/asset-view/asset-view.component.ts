@@ -14,6 +14,7 @@ export class AssetViewComponent implements OnInit {
   count:number = 0
   // declare a custom event for this component
   @Output() sortie:EventEmitter<number> = new EventEmitter()
+  @Output() sellEvent:EventEmitter<number> = new EventEmitter()
 
   constructor() { }
 
@@ -30,6 +31,7 @@ export class AssetViewComponent implements OnInit {
     // increment the count
     if (this.count>0) {
      this.count -= 1
+     this.sellEvent.emit(this.price)
     }
   }
 }

@@ -27,5 +27,8 @@ export class NetWorthComponent implements OnInit {
     // here we can handle the CUSTOM event from the child component
     this.total += value
   }
+  handleSellEvent(value:number){
+    this.total -= value
+  }
 
 }

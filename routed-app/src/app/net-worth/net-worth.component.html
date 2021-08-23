@@ -6,7 +6,8 @@
     *ngFor="let item of codes"
     [code]='item.code'
     [price]='item.price'
-    (sortie)='handleSortie($event)'>
+    (sortie)='handleSortie($event)'
+    (sellEvent)='handleSellEvent($event)'>
     <!-- $event is for custom events -->
   </app-asset-view>
 
