@@ -1,4 +1,9 @@
 <aside>
+  <form>
+    Stock Code: <input [(ngModel)]='code' name='code' placeholder="stock code" minlength="1" maxlength="6" required /><br/>
+    Buy Price C$<input [(ngModel)]='price' name='price' type='number' placeholder="stock price"
+    min="1" required /><br/>
+  </form>
   <p>Code {{code}} Price {{price |currency:'C$'}} Count {{count}}</p>
   <p>Price*Count is {{price * count |currency:'C$'}}</p>
   <button (click)='buyStock()'>Buy</button>
@@ -6,4 +11,5 @@
   <!-- <button *ngIf='count>0' (click)='sellStock()'>Sell</button> -->
   <!-- [hidden]  AWLAYS renders, but css-display can be 'none' -->
   <button [hidden]='!count' (click)='sellStock()'>Sell</button>
+  <button [hidden]='!count' (click)='resetStock()'>Reset</button>
 </aside>

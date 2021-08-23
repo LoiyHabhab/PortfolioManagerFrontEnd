@@ -29,6 +29,13 @@
     <br/>
     <img src='https://graph.facebook.com/{{fbImage}}/picture?type=normal'>
   </form>
+
+  <!-- or... -->
+  <!-- Turns out we don't even need a <form> tag! -->
+    <!-- <input placeholder='Facebook image' required [(ngModel)]='fbImage' />
+    <br/>
+    <img src='https://graph.facebook.com/{{fbImage}}/picture?type=normal'> -->
+
   <hr/>
   <!-- here is where routed content will appear it is mutually exclusive content-->
   <router-outlet></router-outlet>

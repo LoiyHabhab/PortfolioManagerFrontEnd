@@ -20,7 +20,7 @@ export class AssetViewComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  // here are the ethods of this component
+  // here are the methods of this component
   buyStock(){
     // increment the count
     this.count += 1
@@ -34,5 +34,11 @@ export class AssetViewComponent implements OnInit {
      this.sortie.emit(-this.price)
     //  this.sellEvent.emit(this.price)
     }
+  }
+  resetStock(){
+    // reset THIS stock
+    let delta = -this.price * this.count
+    this.sortie.emit(delta)
+    this.count = 0
   }
 }
