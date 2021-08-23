@@ -26,5 +26,9 @@ export class NetWorthComponent implements OnInit {
   modifyParent(value:number){
     this.total += value
   }
+  handleSortie(value:number){
+    // here we can handle the CUSTOM event from the child component
+
+  }
 
 }
