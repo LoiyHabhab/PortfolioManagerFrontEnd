@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MarketMoversComponent } from './market-movers/market-movers.component';
 import { CashFlowComponent } from './cash-flow/cash-flow.component';
+import { InsightsComponent } from './insights/insights.component';
+import { NetWorthComponent } from './net-worth/net-worth.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MarketMoversComponent,
-    CashFlowComponent
+    CashFlowComponent,
+    InsightsComponent,
+    NetWorthComponent
   ],
   imports: [
     BrowserModule,
