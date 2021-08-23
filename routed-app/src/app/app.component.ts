@@ -10,4 +10,12 @@ export class AppComponent {
   title = 'routed-app';
   today = new Date()
   user = 'Ada'
+  askCookieConsent = true
+
+  // In ES6 functions that belong to classes are written like this
+  agreeCookie(){
+    this.askCookieConsent = false
+  }
+
+
 }

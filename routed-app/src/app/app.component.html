@@ -1,4 +1,12 @@
 <!-- here we write our own component template -->
 <article>
   <h2>Routed App Demo</h2>
+  <!-- here we can bind to the daa models -->
+  <!-- the | is 'pipe' in this case for date -->
+  <p>today is {{today | date:'hh:mm:ss'}}</p>
+  <!-- the {{}} are called interpolation binding -->
+  <p>Welcome {{user}}</p>
+  <p>one plus two is {{1+2}}</p>
+  <!-- ask the user to agree to cookies -->
+  <button (click)='agreeCookie()' >Agree</button>
 </article>
