@@ -8,7 +8,8 @@ import { TypicodeService } from 'src/services/typicode.service';
 })
 export class InsightsComponent implements OnInit {
   // wee need data models for this component
-  reportData:any = {} // this is where our returned data from the API will go
+  // reportData:any = {} // this is where our returned data from the API will go
+  reportData = {name:'', id:1}
   // we need access to the service
   constructor(private typicodeService:TypicodeService) { }
 

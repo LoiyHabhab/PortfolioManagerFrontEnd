@@ -1,5 +1,5 @@
 <section>
   <button (click)='makeServiceCall()'>Go</button>
   <pre>{{reportData |json}}</pre>
-  <p *ngIf="reportData">{{reportData['name']}}</p>
+  <p>{{reportData.name}}</p>
 </section>
