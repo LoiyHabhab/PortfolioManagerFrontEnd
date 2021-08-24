@@ -1,10 +1,17 @@
 <aside>
   <form>
-    Stock Code: <input [(ngModel)]='code' name='code' placeholder="stock code" minlength="1" maxlength="6" required /><br/>
+    Stock Code: <input 
+      [(ngModel)]='code' 
+      (change)='codeChangeHandler()'
+      name='code' 
+      placeholder="stock code" 
+      minlength="1" 
+      maxlength="6" 
+      required /><br/>
     Buy Price C$<input [(ngModel)]='price' name='price' type='number' placeholder="stock price"
     min="1" required /><br/>
   </form>
-  <p>Code {{code}} Price {{price |currency:'C$'}} Count {{count}}</p>
+  <p>Code {{code}} Price {{price |currency:'C$'}} Count {{count}} Index {{index}}</p>
   <p>Price*Count is {{price * count |currency:'C$'}}</p>
   <button (click)='buyStock()'>Buy</button>
   <!-- *ngIf will decide if the tag gets rendered or not -->

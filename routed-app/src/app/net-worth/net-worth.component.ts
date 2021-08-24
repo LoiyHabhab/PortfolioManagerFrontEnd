@@ -31,4 +31,8 @@ export class NetWorthComponent implements OnInit {
   //   this.total -= value
   // }
 
+  handleCodeChangeEvent(whichCode:any){
+    this.codes[whichCode['index']].code = whichCode['code']
+  }
+
 }
