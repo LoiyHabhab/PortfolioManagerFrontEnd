@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { timeStamp } from 'console';
 import { TypicodeService } from 'src/services/typicode.service';
 
 @Component({
