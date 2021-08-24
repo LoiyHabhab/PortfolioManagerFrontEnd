@@ -10,8 +10,8 @@ export class NetWorthComponent implements OnInit {
   // declare model data for this component
   total = 0
   codes = [
-    {code:'AMZN', price:42},
-    {code:'NFLX', price:12},
+    {code:'AMZN', price:42}, // member zero
+    {code:'NFLX', price:12}, // member 1
     {code:'GOOGL', price:142},
     {code:'FB', price:82},
     {code:'AAPL', price:11},
@@ -30,6 +30,7 @@ export class NetWorthComponent implements OnInit {
   // handleSellEvent(value:number){
   //   this.total -= value
   // }
+
 
   handleCodeChangeEvent(whichCode:any){
     this.codes[whichCode['index']].code = whichCode['code']
