@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { timeStamp } from 'console';
 import { TypicodeService } from 'src/services/typicode.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { TypicodeService } from 'src/services/typicode.service';
   styleUrls: ['./insights.component.css']
 })
 export class InsightsComponent implements OnInit {
-
+  reportData = {} // this is where our returned data from the API will go
   // we need access to the service
   constructor(private typicodeService:TypicodeService) { }
 
@@ -15,8 +16,11 @@ export class InsightsComponent implements OnInit {
   }
   makeServiceCall(){
     // we call the service method by subscribing to it
-    s
-
+    // remember the api call will be async so subscribing responds when it returns
+    this.typicodeService.getApiData()
+      .subscribe( (data)=>{
+        this.reportData = data
+      } )
   }
 
 }
