@@ -9,7 +9,7 @@ import { InsightsComponent } from './insights/insights.component';
 import { NetWorthComponent } from './net-worth/net-worth.component';
 import { AssetViewComponent } from './net-worth/asset-view/asset-view.component';
 import { FormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -23,7 +23,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule // the FormsModule is needed for forms
+    FormsModule, // the FormsModule is needed for forms
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
