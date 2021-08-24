@@ -9,8 +9,9 @@ export class TypicodeService {
   // this is classic how-to for http
   constructor(private http:HttpClient) { }
   // we need a method of this service - in this case we call an API end-point
-  getApiData(){
-    return this.http.get('https://jsonplaceholder.typicode.com/users/1')
+  getApiData(params={category:'users',id:1}){ // all httpClient services are OBSERVABLES
+
+    return this.http.get(`https://jsonplaceholder.typicode.com/${params.category}/${params.id}`)
   }
 
 }
