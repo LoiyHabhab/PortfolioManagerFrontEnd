@@ -1,12 +1,10 @@
 <section>
   <h3>Net Worth {{total |currency:'C$'}}</h3>
   <p>Here are the assets that make up the net worth</p>
-  
+
   <aside>
-    <h4>Current Stock Codes</h4>
-    <ul>
-      <li *ngFor='let item of codes'>{{item.code}}</li>
-    </ul>
+    <h4>Current Stock Codes: <span *ngFor='let item of codes'>{{item.code}}  </span></h4>
+
   </aside>
   <!-- [] injects values into a component (one-way binding into component) -->
   <app-asset-view
