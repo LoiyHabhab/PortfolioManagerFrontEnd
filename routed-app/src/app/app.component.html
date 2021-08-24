@@ -1,34 +1,42 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
 <!-- here we write our own component template -->
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
+    <a class="navbar-brand" href="#">Portfolio Manager</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="/">Home</a>
+        <a class="nav-item nav-link" routerLink='/cash-flow'>Cash Flow</a>
+        <a class="nav-item nav-link" routerLink='/market-movers'>Market Movers</a>
+        <a class="nav-item nav-link" routerLink='/net-worth'>Net Worth</a>
+        <a class="nav-item nav-link" routerLink='/insights'>Insights</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<body>
 <article>
-  <nav>
-    <!-- links go here -->
+  
+ 
+  <!-- <nav>
+  
     <a routerLink='/cash-flow'>Cash Flow</a> |
     <a routerLink='/market-movers'>Market Movers</a> |
     <a routerLink='/net-worth'>Net Worth</a> |
     <a routerLink='/insights'>Insights</a>
-  </nav>
-  <h2>Routed App Demo</h2>
+  </nav> -->
   <!-- here we can bind to the daa models -->
   <!-- the | is 'pipe' in this case for date -->
-  <p>today is {{today | date:'hh:mm:ss'}}</p>
+  <!-- <p>today is {{today | date:'hh:mm:ss'}}</p> -->
   <!-- the {{}} are called interpolation binding -->
-  <p>Welcome {{user}}</p>
-  <p>one plus two is {{1+2}}</p>
-  <!-- ask the user to agree to cookies -->
-  <!-- the () are one-way event binding OUT of the component -->
-  <!-- structural directives AWLAYS start with an asterisk * -->
-  <ng-container *ngIf='askCookieConsent'>
-    <p>This site uses cookies, is that ok?</p>
-    <button  (click)='agreeCookie()' >Agree</button>
-  </ng-container>
-  <hr/>
+  
   <!-- the <form> tag becomes and NgForm because of the FormsModule -->
-  <form>
-    <!-- here is two-way binding using [()] -->
-    <input placeholder='Facebook image' required [(ngModel)]='fbImage' name='fbImage'/>
-    <br/>
-    <img src='https://graph.facebook.com/{{fbImage}}/picture?type=normal'>
-  </form>
+  
 
   <!-- or... -->
   <!-- Turns out we don't even need a <form> tag! -->
@@ -36,7 +44,8 @@
     <br/>
     <img src='https://graph.facebook.com/{{fbImage}}/picture?type=normal'> -->
 
-  <hr/>
+  
   <!-- here is where routed content will appear it is mutually exclusive content-->
   <router-outlet></router-outlet>
 </article>
+</body>
