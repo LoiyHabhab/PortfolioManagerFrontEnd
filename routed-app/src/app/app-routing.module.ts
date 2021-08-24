@@ -5,11 +5,17 @@ import { InsightsComponent } from './insights/insights.component';
 import { MarketMoversComponent } from './market-movers/market-movers.component';
 import { NetWorthComponent } from './net-worth/net-worth.component';
 
+// all routes are inspected in strict order until a match is found
 const routes: Routes = [
+  {path:'', redirectTo: '/cash-flow', pathMatch:'full'},
   {path:'cash-flow', component:CashFlowComponent},
   {path:'market-movers', component:MarketMoversComponent},
   {path:'net-worth', component:NetWorthComponent},
-  {path:'insights', component:InsightsComponent}
+  // how about alternative spelling/names so users can guess their way around
+  {path:'networth', component:NetWorthComponent},
+  {path:'insights', component:InsightsComponent},
+  // we should catch any route that has not already been matched
+  {path:'**', component:CashFlowComponent} // put this in only when the other routes work!!
 ];
 
 @NgModule({

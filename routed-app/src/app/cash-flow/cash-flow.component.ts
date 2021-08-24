@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cash-flow.component.css']
 })
 export class CashFlowComponent implements OnInit {
-
+  now = new Date()
   constructor() { }
 
   ngOnInit(): void {
+    console.log('here I am!')
+
   }
 
 }
