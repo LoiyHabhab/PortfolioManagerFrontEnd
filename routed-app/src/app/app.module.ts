@@ -9,7 +9,8 @@ import { InsightsComponent } from './insights/insights.component';
 import { NetWorthComponent } from './net-worth/net-worth.component';
 import { AssetViewComponent } from './net-worth/asset-view/asset-view.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import {ChartModule} from 'angular2-chartjs';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { HttpClientModule } from '@angular/common/http'
     BrowserModule,
     AppRoutingModule,
     FormsModule, // the FormsModule is needed for forms
-    HttpClientModule
+    HttpClientModule,
+    ChartModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
