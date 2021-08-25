@@ -1,1 +1,27 @@
-<p>cash-flow works at {{now |date:'short'}}</p>
+<section>
+    <h3>Cash Services</h3>
+    <h4>Total Checking:</h4>
+    <h5>Balance: {{AccountBalance}}</h5>
+    <h5>Available Cash for withdrawl: {{AccountBalance}}</h5>
+    <form>
+        Withdrawl Cash<input type="checkbox"/>
+        Deposit Cash<input type="checkbox"/>
+        <br/>
+        From: 
+        <select>
+            <option>   </option>
+            <option value="TotalChecking">Total Checking</option>
+        </select>
+        <br/>
+        <input type="date"/>
+        <input type="number"/>
+
+    </form>
+
+    <section>
+        <h1>VALUE of tesla stock is </h1>
+        <button (click)='makeServiceCall()'>Go</button>
+        <p>{{reportData}}</p>
+    </section>
+    
+</section>

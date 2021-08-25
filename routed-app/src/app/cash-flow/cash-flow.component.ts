@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { YFinanceService } from 'src/services/yfinance.service';
 
 @Component({
   selector: 'app-cash-flow',
@@ -7,11 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CashFlowComponent implements OnInit {
   now = new Date()
-  constructor() { }
+  reportData = {}
+  constructor(private yFinanceService:YFinanceService) { }
+
+  @Input() AccountBalance:number = 0
 
   ngOnInit(): void {
     console.log('here I am!')
 
+  }
+  makeServiceCall() {
+    this.yFinanceService.getStockInfo()
+      .subscribe( (data:any) => {
+        this.reportData = data
+      })
   }
 
 }
