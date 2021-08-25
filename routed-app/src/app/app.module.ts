@@ -11,6 +11,8 @@ import { AssetViewComponent } from './net-worth/asset-view/asset-view.component'
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {ChartModule} from 'angular2-chartjs';
+import { TradeComponent } from './trade/trade.component';
+import { StockViewComponent } from './trade/stock-view/stock-view.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import {ChartModule} from 'angular2-chartjs';
     CashFlowComponent,
     InsightsComponent,
     NetWorthComponent,
-    AssetViewComponent
+    AssetViewComponent,
+    TradeComponent,
+    StockViewComponent
   ],
   imports: [
     BrowserModule,

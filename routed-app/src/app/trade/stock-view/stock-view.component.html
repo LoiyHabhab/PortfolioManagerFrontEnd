@@ -1,0 +1,20 @@
+<aside>
+    <!-- see the CSS for this page - some clever 'flex' layout is used -->
+    <form>
+      Stock Code: {{stock_name}}<br/>
+      Buy <input type="number" [(ngModel)]='buycount'
+      name='buycount' min="0" max='{{getMaxBuy()}}'> Shares
+      <button (click)='buyStock()'>Confirm</button>
+      <br>
+      Price Per Share: {{price|currency:'$'}}
+      <br>
+      <!-- Total Price: {{price*buycount |currency:'$'}} -->
+      <div [hidden]='!shares'>
+      Sell <input type="number" [(ngModel)]='sellcount'
+      name='sellcount' min="0" max='{{shares}}'> Shares
+      <button>Confirm</button>
+      <br/>
+      </div>
+        Owned Shares: {{shares}}
+    </form>
+</aside>
