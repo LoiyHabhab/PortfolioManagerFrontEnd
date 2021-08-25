@@ -1,3 +1,11 @@
 .navbar-brand{
     padding-left: 2%!important;
 }
+.navbar-custom{
+    background-color:#0082cd!important;
+    /*alternate blue: #0292d8*/
+}
+
+.nav-link{
+   
+}
