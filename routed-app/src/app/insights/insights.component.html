@@ -2,7 +2,7 @@
 <section>
   <h4 style="text-align: center; padding-top:2%;">Historical Account Data</h4>
    <!-- in Angular all forms are ngForm due to FormsModule -->
-  <form>
+  <!-- <form>
     Select a Category
     <select [(ngModel)]='paramObj.category' name='category'>
       <option value='users'>Users</option>
@@ -13,18 +13,32 @@
     Select an ID (1-9)
     <input type='range' min="1" max="9" [(ngModel)]='paramObj.id' name='id' /> {{paramObj.id}}
   </form>
-  <button (click)='makeServiceCall()'>Go</button>
+  <button (click)='makeServiceCall()'>Go</button> -->
   <!-- <pre>{{reportData |json}}</pre> -->
   <!-- ternary operator logic expression ? value if true: value if false -->
-  <p>{{reportData.name ? reportData.name:reportData.id}}</p>
+  <!-- <p>{{reportData.name ? reportData.name:reportData.id}}</p> -->
+ 
 </section>
 <section>
   <div class="container">
     <div class="row">
       <div class="col">
-
+    
+        <form>
+          Select a Time Period
+          <select [(ngModel)]='paramObj.timePeriod' name='timePeriod'>
+            <option value='date'>Today</option>
+            <option value='lastweek'>Last Week</option>
+            
+          </select><br/>
+          Select a user ID (1-9)
+          <input type='range' min="1" max="9" [(ngModel)]='paramObj.id' name='id' /> {{paramObj.id}}
+        </form>
+        <button (click)='makeServiceCall()'>Go</button>
+        <pre>{{reportData |json}}</pre>
       </div>
       <div class="col-6">
+      
         <canvas id="canvas" width="400"></canvas>
       </div>
       <div class="col">
