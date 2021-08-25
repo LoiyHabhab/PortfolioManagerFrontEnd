@@ -1,8 +1,9 @@
 
+
 <section>
   <h4 style="text-align: center; padding-top:2%;">Historical Account Data</h4>
    <!-- in Angular all forms are ngForm due to FormsModule -->
-  <form>
+  <!-- <form>
     Select a Category
     <select [(ngModel)]='paramObj.category' name='category'>
       <option value='users'>Users</option>
@@ -13,23 +14,89 @@
     Select an ID (1-9)
     <input type='range' min="1" max="9" [(ngModel)]='paramObj.id' name='id' /> {{paramObj.id}}
   </form>
-  <button (click)='makeServiceCall()'>Go</button>
+  <button (click)='makeServiceCall()'>Go</button> -->
   <!-- <pre>{{reportData |json}}</pre> -->
   <!-- ternary operator logic expression ? value if true: value if false -->
-  <p>{{reportData.name ? reportData.name:reportData.id}}</p>
+  <!-- <p>{{reportData.name ? reportData.name:reportData.id}}</p> -->
+ 
 </section>
-<section>
+<section onload="makeServiceCall();">
   <div class="container">
+    <div class="row">
+      <div class="col">
+        <h6>Chart Fields</h6>
+        
+        <form>
+          Time Period<br/>
+          <select [(ngModel)]='paramObj.timePeriod' name='timePeriod'>
+            <option value='date'>Today</option>
+            <option value='lastweek'>Last Week</option>
+            <option value='lastmonth'>Last Month</option>
+            <option value='lastquarter'>Last Quarter</option>
+            <option value='lastyear'>Last Year</option>
+            <option value='lastquarter'>Last Quarter</option>
+            <option value='pastmonth'>Past Month (Last 31 days)</option>
+            <option value='pastyear'>Past Year (Last 365 days)</option>
+            <option value='yeartodate'>Year to Date</option> 
+          </select><br/><br/>
+          User ID (1-4)<br/>
+          <input type='number' min="1" max="4" [(ngModel)]='paramObj.id' name='id' />
+          <br/><br/>
+          Date<br/>
+          <input type="date" [(ngModel)]='paramObj.currentDate' name='currentDate'/>
+        </form>
+        <br/>
+        <button (click)='makeServiceCall()' class="btn-primary">Submit</button>
+        <!-- <pre>{{reportData |json}}</pre> -->
+      </div>
+      <div class="col-6">
+      
+        <canvas id="canvas" width="400"></canvas>
+      </div>
+      <div class="col">
+        <form>
+          Value Type<br/>
+          <select [(ngModel)]='valType' name='valType' (ngModelChange)="makeServiceCall()">
+            <option value='networth'>Net Worth</option>
+            <option value='investment'>Investment</option>
+            <option value='cash'>Cash</option>
+        
+          </select>
+          </form>
+      </div>
+    </div>
     <div class="row">
       <div class="col">
 
       </div>
-      <div class="col-6">
-        <canvas id="canvas" width="400"></canvas>
+      <div class="col-8">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">User Id</th>
+              <th scope="col">Date</th>
+              <th scope="col">Cash ($)</th>
+              <th scope="col">Investment ($)</th>
+              <th scope="col">Networth ($)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let d of reportData">
+              
+              <td>{{d.accountId}}</td>
+              <td>{{d.date}}</td>
+              <td>{{d.cash}}</td>
+              <td>{{d.investment}}</td>
+              <td>{{d.networth}}</td>
+            </tr>
+            
+          </tbody>
+        </table>
       </div>
       <div class="col">
-
+       
       </div>
+      
     </div>
   </div>
  
