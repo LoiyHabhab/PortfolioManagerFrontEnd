@@ -54,7 +54,15 @@
         <canvas id="canvas" width="400"></canvas>
       </div>
       <div class="col">
-
+        <form>
+          Value Type<br/>
+          <select [(ngModel)]='valType' name='valType' (ngModelChange)="makeServiceCall()">
+            <option value='networth'>Net Worth</option>
+            <option value='investment'>Investment</option>
+            <option value='cash'>Cash</option>
+        
+          </select>
+          </form>
       </div>
     </div>
     <div class="row">
@@ -86,7 +94,7 @@
         </table>
       </div>
       <div class="col">
-
+       
       </div>
       
     </div>

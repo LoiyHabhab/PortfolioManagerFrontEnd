@@ -19,6 +19,7 @@ export class InsightsComponent implements OnInit {
    formatedData: any= [];
    myChart:Chart = new Chart('line',this.reportData);
    paramObj = {timePeriod:'lastweek', id:1, currentDate:'2021-08-16'}
+   valType ='networth'
    
   // we need access to the service
   constructor(private typicodeService:TypicodeService, private historicalDataService:HistoricalDataService) {
@@ -38,6 +39,7 @@ export class InsightsComponent implements OnInit {
     // this.historicalDataService.getAllHistoricalData().subscribe((data:any)=>{
     //  this.reportData = data;
     // })
+    if (this.myChart){this.myChart.destroy();}
     this.historicalDataService.getDatabyDate(this.paramObj).subscribe((data:any)=>{
       this.reportData = data;
      this.formatedData = this.reportData
@@ -47,7 +49,7 @@ export class InsightsComponent implements OnInit {
       }
       console.log(this.formatedData);
       console.log(this.reportData);
-      if (this.myChart){this.myChart.destroy();}
+      
       var labeldata = [];
 
       var chrtdata = [];
@@ -55,13 +57,14 @@ export class InsightsComponent implements OnInit {
       for(var i =0; i < this.reportData.length; i++)
       {
         labeldata.push(moment(this.reportData[i].date).format('MM/DD/YYYY'));
-        chrtdata.push(this.reportData[i].networth);
+        //chrtdata.push(this.reportData[i].networth);
+        chrtdata.push(this.reportData[i][this.valType]);
       }
       // config
       var chartdata = {
         labels: labeldata,
         datasets: [{
-            label: 'NetWorth',
+            label: this.valType,
             backgroundColor: '#b30000',
             borderColor: '#0082cd',
             data: chrtdata,
