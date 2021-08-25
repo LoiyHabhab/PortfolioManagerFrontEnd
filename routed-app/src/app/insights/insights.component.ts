@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TypicodeService } from 'src/services/typicode.service';
 import {HistoricalDataService} from 'src/services/historical-data.service';
 import {Chart, registerables} from 'chart.js';
+import * as moment from 'moment';
 
 
 
@@ -15,7 +16,7 @@ import {Chart, registerables} from 'chart.js';
 export class InsightsComponent implements OnInit {
   // wee need data models for this component
    reportData:any = {} // this is where our returned data from the API will go
-  
+   myChart:Chart = new Chart('line',this.reportData);
   //reportData = {name:'', id:1}
   // category:string = 'user'
   // id:number = 1
@@ -27,40 +28,8 @@ export class InsightsComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    const labels = [
-              'January',
-              'February',
-              'March',
-              'April',
-              'May',
-              'June',
-          ];
-          const data = {
-              labels: labels,
-              datasets: [{
-                  label: 'My Data A',
-                  backgroundColor: 'rgb(255, 99, 132)',
-                  borderColor: 'rgb(99, 132, 255)',
-                  // data: results['dataA'] //[0, 10, 5, 2, 20, 30, 45],
-                  data: [0, 10, 5, 2, 20, 30, 45],
-              }, {
-                  label: 'My Data B',
-                  backgroundColor: 'rgb(99, 132, 255)',
-                  borderColor: 'rgb(255, 99, 132)',
-                  // data: results['dataB'] // [10, 5, 2, 20, 30, 45, 0],
-                  data: [10, 5, 2, 20, 30, 45, 0],
-              }]
-          };
-          // config
-          let config = {
-              type: 'line',
-              data,
-              options: {}
-          };
-          let myChart = new Chart('canvas',{
-            type:'line',
-            data: data
-          })
+          
+         
   }
   makeServiceCall(){
     // we call the service method by subscribing to it
@@ -76,8 +45,44 @@ export class InsightsComponent implements OnInit {
     // })
     this.historicalDataService.getDatabyDate(this.paramObj).subscribe((data:any)=>{
       this.reportData = data;
-     })
+      if (this.myChart){this.myChart.destroy();}
+      var labeldata = [];
 
+      var chrtdata = [];
+      
+      for(var i =0; i < this.reportData.length; i++)
+      {
+        labeldata.push(moment(this.reportData[i].date).format('MM/DD/YYYY'));
+        chrtdata.push(this.reportData[i].networth);
+      }
+      // config
+      var chartdata = {
+        labels: labeldata,
+        datasets: [{
+            label: 'NetWorth',
+            backgroundColor: '#b30000',
+            borderColor: '#0082cd',
+            data: chrtdata,
+        }]
+    };
+    
+      this.myChart = new Chart('canvas',{
+        type:'line',
+        data: chartdata,
+        options:{
+         scales:{
+          //  y:{
+          //    beginAtZero:true,
+          //    ticks:{
+          //      stepSize:5
+          //    }
+          //  }
+         }
+        }
+      })
+      console.log(chartdata)
+     })
+    
   }
 }
 
