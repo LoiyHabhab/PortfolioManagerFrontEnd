@@ -14,9 +14,6 @@ export class TypicodeService {
     return this.http.get(`https://jsonplaceholder.typicode.com/${params.category}/${params.id}`)
   }
 
-  getAllHistoricalData(){
-    return this.http.get('http://portfolio-manager-portfolio-manager.namdevops22.conygre.com/historicalaccountdata')
-  }
 
   getLatestAccountDataById(params={id:1}){
     return this.http.get(`http://portfolio-manager-portfolio-manager.namdevops22.conygre.com/historicalaccountdata/latestAccountData/${params.id}`)
