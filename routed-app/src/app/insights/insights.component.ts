@@ -1,11 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { TypicodeService } from 'src/services/typicode.service';
+import {Chart, registerables} from 'chart.js';
+
+
 
 @Component({
   selector: 'app-insights',
   templateUrl: './insights.component.html',
   styleUrls: ['./insights.component.css']
 })
+
+//declare var myconfig:any;
 export class InsightsComponent implements OnInit {
   // wee need data models for this component
   // reportData:any = {} // this is where our returned data from the API will go
@@ -14,9 +19,45 @@ export class InsightsComponent implements OnInit {
   // id:number = 1
   paramObj = {category:'user', id:1}
   // we need access to the service
-  constructor(private typicodeService:TypicodeService) { }
+  constructor(private typicodeService:TypicodeService) {
+    Chart.register(...registerables);
+   }
 
   ngOnInit(): void {
+    const labels = [
+              'January',
+              'February',
+              'March',
+              'April',
+              'May',
+              'June',
+          ];
+          const data = {
+              labels: labels,
+              datasets: [{
+                  label: 'My Data A',
+                  backgroundColor: 'rgb(255, 99, 132)',
+                  borderColor: 'rgb(99, 132, 255)',
+                  // data: results['dataA'] //[0, 10, 5, 2, 20, 30, 45],
+                  data: [0, 10, 5, 2, 20, 30, 45],
+              }, {
+                  label: 'My Data B',
+                  backgroundColor: 'rgb(99, 132, 255)',
+                  borderColor: 'rgb(255, 99, 132)',
+                  // data: results['dataB'] // [10, 5, 2, 20, 30, 45, 0],
+                  data: [10, 5, 2, 20, 30, 45, 0],
+              }]
+          };
+          // config
+          let config = {
+              type: 'line',
+              data,
+              options: {}
+          };
+          let myChart = new Chart('canvas',{
+            type:'line',
+            data: data
+          })
   }
   makeServiceCall(){
     // we call the service method by subscribing to it
