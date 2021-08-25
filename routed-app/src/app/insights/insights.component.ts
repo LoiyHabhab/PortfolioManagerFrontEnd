@@ -15,6 +15,7 @@ import {Chart, registerables} from 'chart.js';
 export class InsightsComponent implements OnInit {
   // wee need data models for this component
    reportData:any = {} // this is where our returned data from the API will go
+  
   //reportData = {name:'', id:1}
   // category:string = 'user'
   // id:number = 1
