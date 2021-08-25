@@ -1,4 +1,5 @@
 
+
 <section>
   <h4 style="text-align: center; padding-top:2%;">Historical Account Data</h4>
    <!-- in Angular all forms are ngForm due to FormsModule -->
@@ -19,7 +20,7 @@
   <!-- <p>{{reportData.name ? reportData.name:reportData.id}}</p> -->
  
 </section>
-<section>
+<section onload="makeServiceCall();">
   <div class="container">
     <div class="row">
       <div class="col">
@@ -66,9 +67,9 @@
             <tr>
               <th scope="col">User Id</th>
               <th scope="col">Date</th>
-              <th scope="col">Cash</th>
-              <th scope="col">Investment</th>
-              <th scope="col">Networth</th>
+              <th scope="col">Cash ($)</th>
+              <th scope="col">Investment ($)</th>
+              <th scope="col">Networth ($)</th>
             </tr>
           </thead>
           <tbody>

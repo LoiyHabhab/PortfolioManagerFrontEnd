@@ -18,16 +18,19 @@ export class InsightsComponent implements OnInit {
    reportData:any = [] // this is where our returned data from the API will go
    formatedData: any= [];
    myChart:Chart = new Chart('line',this.reportData);
-   paramObj = {timePeriod:'date', id:2, currentDate:'2021-08-16'}
+   paramObj = {timePeriod:'lastweek', id:1, currentDate:'2021-08-16'}
+   
   // we need access to the service
   constructor(private typicodeService:TypicodeService, private historicalDataService:HistoricalDataService) {
     Chart.register(...registerables);
    }
 
   ngOnInit(): void {
-          
+          this.makeServiceCall();
          
   }
+
+  
   makeServiceCall(){
     // we call the service method by subscribing to it
     // remember the api call will be async so subscribing responds when it returns
@@ -82,5 +85,7 @@ export class InsightsComponent implements OnInit {
      })
     
   }
+
+
 }
 
