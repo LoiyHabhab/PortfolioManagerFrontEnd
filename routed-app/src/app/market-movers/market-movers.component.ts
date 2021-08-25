@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MarketmoversService } from 'src/services/marketmovers.service';
 
 @Component({
   selector: 'app-market-movers',
@@ -7,17 +8,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MarketMoversComponent implements OnInit {
 
-  constructor() { }
+  constructor(private marketmoversService:MarketmoversService) { }
   // we can declare data models for use within this component
-  people = [
-    { f: 'Grace', l: 'Hopper' },
-    { f: 'Catherine', l: 'Johnson' },
-    { f: 'Lisa', l: 'Su' },
-    { f: 'Ada', l: 'Lovelace' },
-    { f: 'Timnit', l: 'Gebru' },
-    { f: 'Meng', l: 'Wanzhou' }
-  ]
+  moversData:any = []
+  gainersData: any=[]
+  losersData: any=[]
+  gainersList: string[] =[]
+  losersList: string[] =[]
+  paramObj = {stock:'BLFS'}
+  stockData: any =[]
   ngOnInit(): void {
+    this.marketmoversService.getMovers().subscribe((data:any)=>{
+      this.moversData = data;
+      console.log(this.moversData)
+      this.gainersData = data.finance.result[0].quotes;
+      this.losersData = data.finance.result[1].quotes;
+      for (var i = 0; i < this.gainersData.length;i++){
+      
+        this.gainersList[i] = this.gainersData[i].symbol;
+        this.losersList[i] = this.losersData[i].symbol;
+      } 
+    })
+
+    this.marketmoversService.getStockSummary(this.paramObj).subscribe((data:any)=>{
+      this.stockData = data;
+      console.log(this.stockData.price.regularMarketChangePercent)
+    })
   }
 
 }

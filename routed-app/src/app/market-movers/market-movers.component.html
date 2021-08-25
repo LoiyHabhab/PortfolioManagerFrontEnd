@@ -1,8 +1,18 @@
 <section>
-  <p>market-movers works!</p>
+  <h5>Top 5 Gainers</h5>
   <!-- we can iterate over a collection such as an array -->
   <ul>
     <!-- *ngFor is sugar syntax for *ngForOf -->
-    <li *ngFor='let person of people'>{{person.f}} {{person.l}}</li>
+    <li *ngFor='let g of gainersList'>{{g}}</li>
+   
+  </ul>
+</section>
+<section>
+  <h5>Top 5 Losers</h5>
+  <!-- we can iterate over a collection such as an array -->
+  <ul>
+    <!-- *ngFor is sugar syntax for *ngForOf -->
+    <li *ngFor='let g of losersList'>{{g}}</li>
+   
   </ul>
 </section>
