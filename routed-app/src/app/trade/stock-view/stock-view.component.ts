@@ -28,8 +28,17 @@ export class StockViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getStockPrice()
+    function sleep(ms: number){
+      return new Promise(resolve=>setTimeout(resolve,ms));
+    }
+    let rand = Math.floor(Math.random() * 5500) + 500
+    sleep(rand).then(()=>{
+      this.getStockPrice()
+    })
+    
   }
+
+  
 
   getMaxBuy(){
     return Math.floor(this.cash/this.price)

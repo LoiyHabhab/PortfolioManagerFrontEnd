@@ -1,15 +1,18 @@
+<body>
+  
+
 <section>
-  <h4 style="text-align: center; padding-top:2%;">Trade Stocks</h4>
+  <h4 style="text-align: center; padding-top:2%;" id="labels">Trade Stocks</h4>
 </section>
 <br>
 <section>
   <div class="container">
     
-<h4>Current Cash Balance: {{currentData.cash|currency:'$'}}</h4>
+<h4 id="labels">Current Cash Balance: {{currentData.cash|currency:'$'}}</h4>
 <hr>
-    <h4>Current Stocks Owned: </h4>
-    <div class="row mb-4">
-    <div class="col w-75">
+    <h4 id="labels">Current Stocks Owned: </h4>
+    
+    <div class="col-10">
     <app-stock-view
     *ngFor="let item of currentStocks; let i=index"
     [stock_name]='item.stock_name'
@@ -24,13 +27,15 @@
     <!-- (sellEvent)='handleSellEvent($event)'> -->
   </app-stock-view>
 </div>
-</div>
+
 
   <br>
   <br>
   
 
-  <h4>Top Stocks:</h4>
+  <h4 id="labels">Top Stocks:</h4>
+  
+    <div class="col-14">
   <app-stock-view
     *ngFor="let item of codes; let i=index"
     [stock_name]='item'
@@ -43,10 +48,11 @@
     <!-- $event is for custom events -->
     <!-- (sellEvent)='handleSellEvent($event)'> -->
   </app-stock-view>
+</div>
 
   <br>
   <br>
-  <h4>Other Stocks:</h4>
+  <h4 id="labels">Other Stocks:</h4>
   <input type="text" [(ngModel)]='searchValue' placeholder="Stock Symbol">
   <button (click)='searchStock()' class="btn-primary">Search</button>
   <br>
@@ -71,7 +77,7 @@
 
 
 </section>
-
+</body>
 
 
 
