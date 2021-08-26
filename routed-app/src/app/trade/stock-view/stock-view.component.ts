@@ -16,7 +16,7 @@ export class StockViewComponent implements OnInit {
   @Input() cash:number = 0
   buycount:number = 0
   sellcount:number = 0
-  price:number = 100
+  @Input() price:number = 100
 
   @Output() buyEvent:EventEmitter<object> = new EventEmitter()
   @Output() sellEvent:EventEmitter<object> = new EventEmitter()
@@ -45,11 +45,12 @@ export class StockViewComponent implements OnInit {
   }
 
   getStockPrice(){
-    
-    this.currentStockService.getStockPrice(this.stock_name)
+      this.currentStockService.getStockPrice(this.stock_name)
     .subscribe((data:any)=>{
       this.price = data["chart"]["result"][0]["meta"]["chartPreviousClose"]
     })
+    
+    
   }
 
 }

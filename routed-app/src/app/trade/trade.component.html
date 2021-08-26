@@ -4,12 +4,12 @@
 <br>
 <section>
   <div class="container">
-    <div class="row">
-      <div class="col">
+    
 <h4>Current Cash Balance: {{currentData.cash|currency:'$'}}</h4>
+<hr>
     <h4>Current Stocks Owned: </h4>
-    <div class="row">
-    <div class="col-6">
+    <div class="row mb-4">
+    <div class="col w-75">
     <app-stock-view
     *ngFor="let item of currentStocks; let i=index"
     [stock_name]='item.stock_name'
@@ -25,8 +25,11 @@
   </app-stock-view>
 </div>
 </div>
+
   <br>
   <br>
+  
+
   <h4>Top Stocks:</h4>
   <app-stock-view
     *ngFor="let item of codes; let i=index"
@@ -63,8 +66,7 @@
 <br>
 </div>
       
-</div>
-</div>
+
 
 
 

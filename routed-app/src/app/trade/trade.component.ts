@@ -164,4 +164,6 @@ export class TradeComponent implements OnInit {
     this.readyToSearch = 1
   }
 
+  
+
 }

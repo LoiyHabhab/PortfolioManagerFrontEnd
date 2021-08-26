@@ -1,13 +1,17 @@
 /* :host styles whatever tag this is inside (we may not know) */
-:host{
-    background-color: black;
-    color:white;
-    font-family: 'Courier New', Courier, monospace;
+ :host{
+  display: flex;
+  flex-wrap: wrap;
     display:inline-block;
-  }
-  
+    padding: 10px;
+  } 
+  input[type='number']{ 
+    padding-left:10px;
+width:45px;
+text-align:center;
+}
   /* https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
-  aside{
+  /* aside{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -18,5 +22,5 @@
     margin-right:auto;
     border: 1px solid black;
   }
-  input {width: 42px;}
+  input {width: 42px;} */
   

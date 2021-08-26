@@ -1,14 +1,14 @@
 
-<aside>
+
     <!-- see the CSS for this page - some clever 'flex' layout is used -->
-    <div class="container">
-      <div class="row">
-        <div class="col">
+    <div class="card text-center bg-light border-primary mb-3" style="max-width: 18rem;">
+      <div class="card-body">
     <form>
-      Stock Code: {{stock_name}}<br/>
+      <div class="card-header" >Stock Code: <b> {{stock_name}}</b></div><br/>
+      <div class="card-text">
       Buy <input type="number" [(ngModel)]='buycount'
       name='buycount' min="0" max='{{getMaxBuy()}}'> Shares
-      <button (click)='buyStock()' class="btn-primary">Confirm</button>
+      <button (click)='buyStock()' class="btn-primary">Buy</button>
       <br>
       Price Per Share: {{price|currency:'$'}}
       <br>
@@ -16,16 +16,21 @@
       <div [hidden]='!shares'>
       Sell <input type="number" [(ngModel)]='sellcount'
       name='sellcount' min="0" max='{{shares}}'> Shares
-      <button (click)='sellStock()' class="btn-primary">Confirm</button>
+      <button (click)='sellStock()' class="btn-primary">Sell</button>
       <br/>
+      <br>
+      <div class="card-footer bg-transparent border-success"><b>
       Owned Shares: {{shares}}
+    </b>
       </div>
-      
+      </div>
+    </div>
         
     </form>
     </div>
     </div>
-    </div>
-</aside>
+    
+    
+
 
       
