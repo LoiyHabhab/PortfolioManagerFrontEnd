@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {ChartModule} from 'angular2-chartjs';
 import { TradeComponent } from './trade/trade.component';
 import { StockViewComponent } from './trade/stock-view/stock-view.component';
+import { StockCardComponent } from './cash-flow/stock-card/stock-card.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { StockViewComponent } from './trade/stock-view/stock-view.component';
     NetWorthComponent,
     AssetViewComponent,
     TradeComponent,
-    StockViewComponent
+    StockViewComponent,
+    StockCardComponent
   ],
   imports: [
     BrowserModule,
