@@ -16,7 +16,7 @@ export class StockCardComponent implements OnInit {
 @Input() cash:number = 0
 @Input() price:number = 0
 
-@Output() calculatePricesEvent:EventEmitter<number> = new EventEmitter()
+@Output() calculatePricesEvent:EventEmitter<Object> = new EventEmitter()
 
 
 constructor(private currentStockService:CurrentstocksService) {}
@@ -38,7 +38,12 @@ getStockPrice(){
 calculatePricesHandler(){
   let totalValue = 0 
   totalValue = this.price * this.shares
-  this.calculatePricesEvent.emit(totalValue)
+  this.calculatePricesEvent.emit(
+    {
+      price: this.price,
+      index: this.index,
+      totalValue: totalValue}
+    )
   console.log(totalValue)
 }
 

@@ -1,31 +1,47 @@
+<body>
 <section>
-    <div class="container">
+    <div class="container" id="cash_flow">
         <div class="row">
-            <form class="userId">
+            <form id="labels" class="userId">
                 User ID (1-4)
                 <input type='number' min="1" max="4" [(ngModel)]='updateCash.id' name='id' />
                 <button (click)='updateUserId()' class="btn-primary">Go</button>
             </form>
             <div class="col-6">
-                <h3>Net Worth</h3>
-                <h5>Total Balance: {{TotalInvestments+AccountBalance}}</h5>
-                <p>Cash: {{AccountBalance}} Investments: {{TotalInvestments}}</p>
-                <h4>Current Stocks Owned: </h4>
-                <div id="stocks">
-                    <app-stock-card
-                        *ngFor="let item of currentStocks; let i=index"
-                        [stock_name]='item.stock_name'
-                        [account_id]='item.account_id'
-                        [shares]='item.shares'
-                        [index]='i'
-                        [id]='item.id'
-                        (calculatePricesEvent)='handleStockPricesEvent($event)'
-                    ></app-stock-card>
+                <div class="row">
+                    <div class="col-6">
+                        <br/>
+                        <h3 id="labels">Net Worth</h3>
+                        <h5 id="labels">Total Balance: {{(TotalInvestments+AccountBalance).toFixed(2)}}</h5>
+                        <p id="labels">Cash: {{AccountBalance}} <br/> Investments: {{TotalInvestments.toFixed(2)}}</p>
+                    </div>
+                    <div class="col-6">  
+                        <canvas id="myCanvasId" width="200" height="200">{{myChart}}</canvas>
+                    </div>
+                </div>
+                <div id="labels">
+                    <div >
+                        <h4>Current Stocks Owned </h4>
+                        <div id="stocks">
+                            <app-stock-card
+                                *ngFor="let item of currentStocks; let i=index"
+                                [stock_name]='item.stock_name'
+                                [account_id]='item.account_id'
+                                [shares]='item.shares'
+                                [index]='i'
+                                [id]='item.id'
+                                (calculatePricesEvent)='handleStockPricesEvent($event)'
+                            ></app-stock-card>
+                        </div>
+                    </div>
+                    <div class="col-6">  
+                        <!-- <canvas id="StockChart" width="200" height="200">{{stocksChart}}</canvas> -->
+                    </div>
                 </div>
                 
 
             </div>
-            <div class="col-6">
+            <div class="col-6" id="labels">
                 <h3>Cash Services</h3>
                 <br/>
                 <h4>Total Checking</h4>
@@ -60,3 +76,4 @@
     </section> -->
     
 </section>
+</body>

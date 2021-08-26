@@ -1,10 +1,10 @@
 /* :host styles whatever tag this is inside (we may not know) */
-:host{
+/* :host{
     background-color: black;
     color:white;
     font-family: 'Courier New', Courier, monospace;
     display:inline-block;
-  }
+  } */
   section{
     background-color: darkslategray;
     border: 1px solid black;
@@ -22,4 +22,96 @@
     border: 1px solid black;
   }
   input {width: 42px;}
- 
+
+  /* :host styles whatever tag this is inside (we may not know) */
+ :host{
+    display: flex;
+    flex-wrap: wrap;
+      display:inline-block;
+      padding: 10px;
+    } 
+    input[type='number']{ 
+      padding-left:10px;
+  width:45px;
+  text-align:center;
+  }
+  
+  .table{
+    border-color: rgb(219, 219, 219);
+    color:rgb(219, 219, 219);
+  }
+  #labels{
+    color: rgb(226, 226, 226);
+  }
+  
+  button{
+    background-color: #0082CD;
+    border-radius: 7px;
+    padding:5px;
+    border-color: #0082CD;
+    padding-left:7px;
+    padding-right: 7px;
+  }
+  
+  input[type=number]{
+    background-color: rgb(219, 219, 219);
+    border-radius: 3px;
+    border:none;
+  }
+  input[type=date]{
+    background-color: rgb(219, 219, 219);
+    border-radius: 3px;
+    border:none;
+  }
+  
+  select{
+    background-color: rgb(219, 219, 219);
+    border-radius: 3px;
+    border:none;
+  }
+  /* .row{
+    background-color: #1a307ac2; padding-bottom:10px; padding-top:10px
+  } */
+  body{
+    background-color: #091748!important;
+  }
+  .table{
+    border-color: rgb(219, 219, 219);
+    color:rgb(219, 219, 219);
+  }
+  #labels{
+    color: rgb(226, 226, 226);
+  }
+  
+  button{
+    background-color: #0082CD;
+    border-radius: 7px;
+    padding:5px;
+    border-color: #0082CD;
+    padding-left:7px;
+    padding-right: 7px;
+  }
+  
+  input[type=number]{
+    background-color: rgb(219, 219, 219);
+    border-radius: 3px;
+    border:none;
+  }
+  input[type=date]{
+    background-color: rgb(219, 219, 219);
+    border-radius: 3px;
+    border:none;
+  }
+  
+  select{
+    background-color: rgb(219, 219, 219);
+    border-radius: 3px;
+    border:none;
+  }
+  /* .row{
+    background-color: #1a307ac2; padding-bottom:10px; padding-top:10px
+  } */
+  
+ #cards {
+    background-color: #091748!important;
+ }
