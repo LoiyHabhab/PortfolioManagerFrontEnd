@@ -1,27 +1,65 @@
 <section>
-    <h3>Cash Services</h3>
-    <h4>Total Checking:</h4>
-    <h5>Balance: {{AccountBalance}}</h5>
-    <h5>Available Cash for withdrawl: {{AccountBalance}}</h5>
-    <form>
-        Withdrawl Cash<input type="checkbox"/>
-        Deposit Cash<input type="checkbox"/>
-        <br/>
-        From: 
-        <select>
-            <option>   </option>
-            <option value="TotalChecking">Total Checking</option>
-        </select>
-        <br/>
-        <input type="date"/>
-        <input type="number"/>
+    <div class="container">
+        <div class="row">
+            <form class="userId">
+                User ID (1-4)
+                <input type='number' min="1" max="4" [(ngModel)]='updateCash.id' name='id' />
+                <button (click)='updateUserId()' class="btn-primary">Go</button>
+            </form>
+            <div class="col-6">
+                <h3>Net Worth</h3>
+                <h5>Total Balance: {{TotalInvestments+AccountBalance}}</h5>
+                <p>Cash: {{AccountBalance}} Investments: {{TotalInvestments}}</p>
+                <h4>Current Stocks Owned: </h4>
+                <div id="stocks">
+                    <app-stock-card
+                        *ngFor="let item of currentStocks; let i=index"
+                        [stock_name]='item.stock_name'
+                        [account_id]='item.account_id'
+                        [shares]='item.shares'
+                        [index]='i'
+                        [id]='item.id'
+                        (calculatePricesEvent)='handleStockPricesEvent($event)'
+                    ></app-stock-card>
+                </div>
+                
 
-    </form>
+            </div>
+            <div class="col-6">
+                <h3>Cash Services</h3>
+                <br/>
+                <h4>Total Checking</h4>
+                <h5>Account Balance: {{AccountBalance}}</h5>
+                <br/>
+                <form>
+                    User ID (1-4)
+                    <input type='number' min="1" max="4" [(ngModel)]='updateCash.id' name='id' />
+                    <br/><br/>
+                    Deposit Cash <input type="checkbox" name="test" 
+                    [checked]="currentlyChecked === checkBoxAction.depositCash" 
+                    (click)="selectCheckBox(checkBoxAction.depositCash)">
+                    Withdrawl Cash <input type="checkbox" name="test" 
+                    [checked]="currentlyChecked === checkBoxAction.withdrawalCash" 
+                    (click)="selectCheckBox(checkBoxAction.withdrawalCash)">
+                    <br/>
+                    Amount:
+                    <input [(ngModel)]='updateCash.amount' name='amount' type="number" step="0.01"/>
+                </form>
+                <br>
+                <p>
+                    <button (click)='updateCashCall()' class="btn-primary">Submit</button>
+                <p>
+                
+            </div>
+            
+        </div>
 
-    <section>
+    </div>
+
+    <!-- <section>
         <h1>VALUE of tesla stock is </h1>
         <button (click)='makeServiceCall()'>Go</button>
-        <p>{{reportData}}</p>
-    </section>
+        <p>{{reportData ? reportData: null}}</p>
+    </section> -->
     
 </section>

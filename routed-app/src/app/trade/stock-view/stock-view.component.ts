@@ -42,6 +42,7 @@ export class StockViewComponent implements OnInit {
     this.currentStockService.getStockPrice(this.stock_name)
     .subscribe((data:any)=>{
       console.log(data)
+      //this.stockPrice = data["chart"]["result"][0]["meta"]["chartPreviousClose"]
     })
     
   }
