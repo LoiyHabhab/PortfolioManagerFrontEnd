@@ -60,8 +60,8 @@ export class InsightsComponent implements OnInit {
         labels: labeldata,
         datasets: [{
             label: this.valType,
-            backgroundColor: '#b30000',
-            borderColor: '#0082cd',
+            backgroundColor: '#F5497C',
+            borderColor: '#F5497C',
             data: chrtdata,
         }]
     };
@@ -70,14 +70,31 @@ export class InsightsComponent implements OnInit {
         type:'line',
         data: chartdata,
         options:{
-         scales:{
-          //  y:{
-          //    beginAtZero:true,
-          //    ticks:{
-          //      stepSize:5
-          //    }
-          //  }
-         }
+          plugins:{
+            legend:{
+              labels:{
+                color:'rgb(219, 219, 219)'
+              }
+            }
+          },
+          scales:{
+            y:{
+              ticks:{
+                color:'rgb(219, 219, 219)'
+              },
+              grid:{
+                color:'rgb(219, 219, 219)'
+              }
+            },
+            x:{
+              ticks:{
+                color:'rgb(219, 219, 219)'
+              },
+              grid:{
+                color:'rgb(219, 219, 219)'
+              }
+            }
+          }
         }
       })
      })

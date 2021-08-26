@@ -5,6 +5,7 @@
     <div class="row">
       <div class="col"></div>
       <div class="col-5">
+        <br/>
         <h5 style="text-align: center;">Top 5 Gainers</h5>
         <div class="row">
         <div class="col">
@@ -18,7 +19,7 @@
           <ul id="list">
           
            
-            <li *ngFor='let p of gainerPercents'>{{p}}</li> 
+            <li *ngFor='let p of gainerPercents' style="color: green;">{{p}}</li> 
           </ul>
         </div>
       </div>
@@ -26,6 +27,7 @@
         
       </div>
       <div class="col-5">
+        <br/>
         <h5 style="text-align: center;">Top 5 Losers</h5>
         <div class="row">
           <div class="col">
@@ -39,7 +41,7 @@
             <ul id="list">
             
              
-              <li *ngFor='let p of loserPercents'>{{p}}</li> 
+              <li *ngFor='let p of loserPercents' style="color: red;">{{p}}</li> 
             </ul>
           </div>
         </div>

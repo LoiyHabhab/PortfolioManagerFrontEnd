@@ -1,17 +1,17 @@
 
-
+<body>
 <section>
-  <h4 style="text-align: center; padding-top:2%;">Historical Account Data</h4>
+  <h4 style="text-align: center; padding-top:2%;" id="labels">Historical Account Data</h4>
  
 </section>
 <section onload="makeServiceCall();">
   <div class="container">
-    <div class="row">
+    <div class="row" >
       <div class="col">
-        <h6>Chart Fields</h6>
+        <h6 id="labels">Chart Fields</h6>
         
         <form>
-          Time Period<br/>
+          <a id="labels">Time Period</a>
           <select [(ngModel)]='paramObj.timePeriod' name='timePeriod'>
             <option value='date'>Today</option>
             <option value='lastweek'>Last Week</option>
@@ -23,10 +23,10 @@
             <option value='pastyear'>Past Year (Last 365 days)</option>
             <option value='yeartodate'>Year to Date</option> 
           </select><br/><br/>
-          User ID (1-4)<br/>
+          <a id="labels">User Id (1-4)</a><br/>
           <input type='number' min="1" max="4" [(ngModel)]='paramObj.id' name='id' />
           <br/><br/>
-          Date<br/>
+          <a id="labels">Date</a><br/>
           <input type="date" [(ngModel)]='paramObj.currentDate' name='currentDate'/>
         </form>
         <br/>
@@ -39,7 +39,8 @@
       </div>
       <div class="col">
         <form>
-          Value Type<br/>
+          <br/>
+          <a id="labels">Value Type</a><br/>
           <select [(ngModel)]='valType' name='valType' (ngModelChange)="makeServiceCall()">
             <option value='networth'>Net Worth</option>
             <option value='investment'>Investment</option>
@@ -49,12 +50,13 @@
           </form>
       </div>
     </div>
+    <br/>
     <div class="row">
       <div class="col">
 
       </div>
       <div class="col-8">
-        <table class="table">
+        <table class="table" >
           <thead>
             <tr>
               <th scope="col">User Id</th>
@@ -87,4 +89,5 @@
  
   
 </section>
+</body>
 
