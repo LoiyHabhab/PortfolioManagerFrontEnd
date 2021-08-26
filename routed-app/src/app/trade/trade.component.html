@@ -1,0 +1,37 @@
+<br>
+
+<h4>Current Cash Balance: {{currentData.cash|currency:'$'}}</h4>
+    <h4>Current Stocks Owned: </h4>
+    <app-stock-view
+    *ngFor="let item of currentStocks; let i=index"
+    [stock_name]='item.stock_name'
+    [account_id]='item.account_id'
+    [shares]='item.shares'
+    [index]='i'
+    [id]='item.id'
+    [cash]='currentData.cash'
+    (buyEvent)='handleBuyEvent($event)'>
+    <!-- $event is for custom events -->
+    <!-- (sellEvent)='handleSellEvent($event)'> -->
+  </app-stock-view>
+  <br>
+  <br>
+  <h4>Top Stocks:</h4>
+  <app-stock-view
+    *ngFor="let item of codes; let i=index"
+    [stock_name]='item'
+    [account_id]='accountID'
+    [shares]=0
+    [cash]='currentData.cash'
+    (buyEvent)='handleBuyEvent($event)'>
+    <!-- $event is for custom events -->
+    <!-- (sellEvent)='handleSellEvent($event)'> -->
+  </app-stock-view>
+<br>
+<br>
+
+
+
+
+
+ 
