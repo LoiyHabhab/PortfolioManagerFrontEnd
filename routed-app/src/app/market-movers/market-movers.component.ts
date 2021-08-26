@@ -40,29 +40,37 @@ export class MarketMoversComponent implements OnInit {
           this.losersList[i] = this.losersData[i].symbol;
         } 
         
-        sleep(3000).then(()=>{
-          for (let g of this.gainersList){
-              this.paramObj={stock:g}
-               this.marketmoversService.getStockSummary(this.paramObj).subscribe((data:any)=>{
-                  this.stockData = data;
-                  
-                  //console.log(this.stockData.price.regularMarketChangePercent.fmt)
-                  this.gainerPercents.push(this.stockData.price.regularMarketChangePercent.fmt)
-                })
-            }
+        sleep(2000).then(()=>{
+        const httpCalls = [];
+        for (var i = 0; i < this.gainersList.length;i++){
+         
+          this.paramObj={stock:this.gainersList[i]}
+         
+          httpCalls.push(this.marketmoversService.getStockSummary(this.paramObj).pipe(map((response:any)=>response)));
+          }
+          forkJoin(httpCalls).subscribe(res=>{
+            //console.log(res)
+            res.forEach(stock =>this.gainerPercents.push(stock.price.regularMarketChangePercent.fmt) )
+            
+          })
         });
-        sleep(5500).then(()=>{
-        for (let l of this.losersList){
-          this.paramObj={stock:l}
-           this.marketmoversService.getStockSummary(this.paramObj).subscribe((data:any)=>{
-              this.stockData = data;
-              
-              //console.log(this.stockData.price.regularMarketChangePercent.fmt)
-              this.loserPercents.push(this.stockData.price.regularMarketChangePercent.fmt)
-            })
-        }
-      }) });
+          sleep(6000).then(()=>{
+            const httpCalls = [];
+        
+            for (var i = 0; i < this.losersList.length;i++){
+             
+              this.paramObj={stock:this.losersList[i]}
+             
+              httpCalls.push(this.marketmoversService.getStockSummary(this.paramObj).pipe(map((response:any)=>response)));
+              }
+              forkJoin(httpCalls).subscribe(res=>{
+                //console.log(res)
+                res.forEach(stock =>this.loserPercents.push(stock.price.regularMarketChangePercent.fmt) )
+               
+              })
+          });
 
+        });
       
     function sleep(ms: number){
       return new Promise(resolve=>setTimeout(resolve,ms));
@@ -86,27 +94,14 @@ export class MarketMoversComponent implements OnInit {
       const httpCalls = [];
 
       for (var i = 0; i < this.accountList.length;i++){
-      //sleep(200).then(()=>{
         console.log(this.accountList[i])
         let paramObjAccount = {stock:this.accountList[i]}
-        // this.marketmoversService.getStockSummary(paramObjAccount).subscribe((data:any)=>{
-        //   this.stockData = data;
-          
-        //   //console.log(this.stockData.price.regularMarketChangePercent.fmt)
-        //   this.accountPercents.push(this.stockData.price.regularMarketChangePercent.fmt)
-        //   console.log(this.accountPercents[i])
-        // })
-      //});
-      httpCalls.push(this.marketmoversService.getStockSummary(paramObjAccount).pipe(map((response:any)=>response)));
+    
+        httpCalls.push(this.marketmoversService.getStockSummary(paramObjAccount).pipe(map((response:any)=>response)));
       }
       forkJoin(httpCalls).subscribe(res=>{
         console.log(res)
         res.forEach(stock =>this.accountPercents.push(stock.price.regularMarketChangePercent.fmt) )
-        // this.stockData = res;
-          
-        // console.log(this.stockData.price.regularMarketChangePercent.fmt)
-        // this.accountPercents.push(this.stockData.price.regularMarketChangePercent.fmt)
-        //console.log(this.accountPercents[i])
       })
       console.log(this.accountPercents)
       
