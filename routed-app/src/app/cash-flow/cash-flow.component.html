@@ -32,9 +32,6 @@
                 <h5>Account Balance: {{AccountBalance}}</h5>
                 <br/>
                 <form>
-                    User ID (1-4)
-                    <input type='number' min="1" max="4" [(ngModel)]='updateCash.id' name='id' />
-                    <br/><br/>
                     Deposit Cash <input type="checkbox" name="test" 
                     [checked]="currentlyChecked === checkBoxAction.depositCash" 
                     (click)="selectCheckBox(checkBoxAction.depositCash)">
