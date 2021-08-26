@@ -26,7 +26,8 @@ export class TradeComponent implements OnInit {
     'GOOGL',
     'FB',
     'AAPL',
-    'TSLA'
+    'TSLA',
+    'MSFT'
   ]
 
   searchValue = ''
