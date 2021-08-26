@@ -10,7 +10,8 @@
     [index]='i'
     [id]='item.id'
     [cash]='currentData.cash'
-    (buyEvent)='handleBuyEvent($event)'>
+    (buyEvent)='handleBuyEvent($event)'
+    (sellEvent)='handleSellEvent($event)'>
     <!-- $event is for custom events -->
     <!-- (sellEvent)='handleSellEvent($event)'> -->
   </app-stock-view>
@@ -23,7 +24,9 @@
     [account_id]='accountID'
     [shares]=0
     [cash]='currentData.cash'
-    (buyEvent)='handleBuyEvent($event)'>
+    (buyEvent)='handleBuyEvent($event)'
+    (sellEvent)='handleSellEvent($event)'
+    >
     <!-- $event is for custom events -->
     <!-- (sellEvent)='handleSellEvent($event)'> -->
   </app-stock-view>

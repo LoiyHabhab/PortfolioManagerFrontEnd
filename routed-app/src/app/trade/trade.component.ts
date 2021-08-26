@@ -21,10 +21,11 @@ export class TradeComponent implements OnInit {
 
   codes = [
     'AMZN',
-    'NFLX', // member 1
+    'NFLX', 
     'GOOGL',
     'FB',
-    'AAPL'
+    'AAPL',
+    'TSLA'
   ]
   constructor(private currentStockService:CurrentstocksService) { }
 
@@ -66,23 +67,71 @@ export class TradeComponent implements OnInit {
   }
 
   checkIfStockOwned(code:string){
-
+    let x = -1
+      this.currentStocks.forEach((element, index)=>{
+        if(element.stock_name==code){
+          console.log("owned")
+          x = index
+        }
+      })
+    return x
   }
 
   handleBuyEvent(values:any){
     console.log(values)
     this.currentData.cash-=values.price*values.shares
+    console.log("bought")
+    this.populateCurrentStocks()
+    let x = this.checkIfStockOwned(values.stock_name)
+    if(x==-1){
+      this.currentStockService.addCurrentStock({account_id:this.accountID,stock_name:values.stock_name,shares:values.shares}).subscribe()
+    }else{
+      console.log(this.currentStocks)
+      console.log(x)
+      console.log(this.currentStocks[x].shares)
+      this.currentStocks[x].shares += values.shares
+      this.currentStockService.deleteCurrentStock(this.currentStocks[x].id).subscribe()
+      this.currentStockService.addCurrentStock({account_id:this.accountID,stock_name:values.stock_name,shares:this.currentStocks[x].shares}).subscribe()
+      
+    }
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
 
-    this.currentStockService.addCurrentStock({account_id:this.accountID,stock_name:values.stock_name,shares:values.shares}).subscribe()
-    console.log("added")
-    // console.log(values.stock_name)
-    // console.log(this.ownedCodes)
-    // if(this.ownedCodes.includes(values.stock_name)){
-    //   console.log("stock owned")
-    // }else{
-    //   console.log("not owned")
-    // }
+    var todayD = mm + '/' + dd + '/' + yyyy;
+    //this.currentStockService.addTransaction({account_id:this.accountID,b_or_s:'b',date:todayD,price_per_share:values.price,shares:values.shares,stock_name:values.stock_name}).subscribe()
+    //this.populateCurrentStocks()
+    setTimeout(function() {
+      //code to be executed after 0.5 second
+      location.reload()
+    }, 500);
+    
 
+  }
+
+  handleSellEvent(values:any){
+    this.currentData.cash+=values.price*values.shares
+    let x = this.checkIfStockOwned(values.stock_name)
+    if(x==-1){
+      this.currentStockService.addCurrentStock({account_id:this.accountID,stock_name:values.stock_name,shares:values.shares}).subscribe()
+    }else{
+      console.log(this.currentStocks)
+      console.log(x)
+      console.log(this.currentStocks[x].shares)
+      this.currentStocks[x].shares -= values.shares
+      this.currentStockService.deleteCurrentStock(this.currentStocks[x].id).subscribe()
+      if(this.currentStocks[x].shares>0){
+        this.currentStockService.addCurrentStock({account_id:this.accountID,stock_name:values.stock_name,shares:this.currentStocks[x].shares}).subscribe()
+      } 
+    }
+    //this.populateCurrentStocks()
+    setTimeout(function() {
+      //code to be executed after 0.5 second
+      location.reload()
+    }, 500);
+    
+    //console.log("sold")
   }
 
   handleBalanceChange(value:number){

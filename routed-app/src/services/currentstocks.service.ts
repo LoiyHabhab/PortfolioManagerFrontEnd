@@ -22,11 +22,29 @@ export class CurrentstocksService {
         'Content-Type':  'application/json',
       })
     };
-    return this.http.post("http://portfolio-manager-portfolio-manager.namdevops22.conygre.com/currentstocks",{account_id:1,shares:5,stock_name:"MMM"},httpOptions)
+    //console.log(obj)
+    return this.http.post("http://portfolio-manager-portfolio-manager.namdevops22.conygre.com/currentstocks",obj,httpOptions)
     // return this.http.post("http://portfolio-manager-portfolio-manager.namdevops22.conygre.com/currentstocks",JSON.stringify(obj),httpOptions)
     //return this.http.post("http://portfolio-manager-portfolio-manager.namdevops22.conygre.com/accounts",{email:"DSADASD",name:"dsadsad"},httpOptions)
 
   }
+
+  deleteCurrentStock(obj:number){
+    let url = `http://portfolio-manager-portfolio-manager.namdevops22.conygre.com/currentstocks/${obj}`
+    console.log(url)
+    return this.http.delete(url)
+  }
+
+  addTransaction(obj:object){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      })
+    };
+    //console.log(obj)
+    return this.http.post("http://portfolio-manager-portfolio-manager.namdevops22.conygre.com/transactions",obj,httpOptions)
+  }
+
 
   getStockPrice(symbol:string) {
     const headers= new HttpHeaders()

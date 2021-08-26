@@ -12,9 +12,11 @@
       <div [hidden]='!shares'>
       Sell <input type="number" [(ngModel)]='sellcount'
       name='sellcount' min="0" max='{{shares}}'> Shares
-      <button>Confirm</button>
+      <button (click)='sellStock()'>Confirm</button>
       <br/>
+      Owned Shares: {{shares}}
       </div>
-        Owned Shares: {{shares}}
+      
+        
     </form>
 </aside>

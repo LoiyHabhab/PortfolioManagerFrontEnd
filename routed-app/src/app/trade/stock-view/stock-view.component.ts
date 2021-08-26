@@ -19,6 +19,7 @@ export class StockViewComponent implements OnInit {
   price:number = 100
 
   @Output() buyEvent:EventEmitter<object> = new EventEmitter()
+  @Output() sellEvent:EventEmitter<object> = new EventEmitter()
 
 
 
@@ -27,7 +28,7 @@ export class StockViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getStockPrice()
+    //this.getStockPrice()
   }
 
   getMaxBuy(){
@@ -36,6 +37,11 @@ export class StockViewComponent implements OnInit {
 
   buyStock(){
     this.buyEvent.emit({stock_name:this.stock_name,price:this.price,shares:this.buycount}) // we can send complex data as an object
+  }
+
+  sellStock(){
+    console.log("sell here")
+    this.sellEvent.emit({stock_name:this.stock_name,price:this.price,shares:this.sellcount})
   }
 
   getStockPrice(){
