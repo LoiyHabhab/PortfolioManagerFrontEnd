@@ -33,12 +33,7 @@ export class InsightsComponent implements OnInit {
 
   
   makeServiceCall(){
-    // we call the service method by subscribing to it
-    // remember the api call will be async so subscribing responds when it returns
-    
-    // this.historicalDataService.getAllHistoricalData().subscribe((data:any)=>{
-    //  this.reportData = data;
-    // })
+  
     if (this.myChart){this.myChart.destroy();}
     this.historicalDataService.getDatabyDate(this.paramObj).subscribe((data:any)=>{
       this.reportData = data;

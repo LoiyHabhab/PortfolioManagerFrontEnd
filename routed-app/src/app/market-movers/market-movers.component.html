@@ -1,18 +1,50 @@
-<section>
-  <h5>Top 5 Gainers</h5>
-  <!-- we can iterate over a collection such as an array -->
-  <ul>
-    <!-- *ngFor is sugar syntax for *ngForOf -->
-    <li *ngFor='let g of gainersList'>{{g}}</li>
-   
-  </ul>
-</section>
-<section>
-  <h5>Top 5 Losers</h5>
-  <!-- we can iterate over a collection such as an array -->
-  <ul>
-    <!-- *ngFor is sugar syntax for *ngForOf -->
-    <li *ngFor='let g of losersList'>{{g}}</li>
-   
-  </ul>
-</section>
+
+<body>
+  <section></section>
+  <div class="container">
+    <div class="row">
+      <!-- <div class="col"></div> -->
+      <div class="col-6">
+        <h5 style="text-align: center;">Top 5 Gainers</h5>
+        <div class="row">
+        <div class="col">
+          <ul id="list">
+          
+            <li *ngFor='let g of gainersList'>{{g}}</li>
+           
+          </ul>
+        </div>
+        <div class="col">
+          <ul id="list">
+          
+           
+            <li *ngFor='let p of gainerPercents'>{{p}}</li> 
+          </ul>
+        </div>
+      </div>
+       
+        
+      </div>
+      <div class="col-6">
+        <h5 style="text-align: center;">Top 5 Losers</h5>
+        <div class="row">
+          <div class="col">
+            <ul id="list">
+            
+              <li *ngFor='let g of losersList'>{{g}}</li>
+             
+            </ul>
+          </div>
+          <div class="col">
+            <ul id="list">
+            
+             
+              <li *ngFor='let p of loserPercents'>{{p}}</li> 
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col"></div> -->
+    </div>
+  </div>
+</body>
