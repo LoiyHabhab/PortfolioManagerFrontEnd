@@ -48,8 +48,8 @@ export class CurrentstocksService {
 
   getStockPrice(symbol:string) {
     const headers= new HttpHeaders()
-      .set('x-rapidapi-host', 'apidojo-yahoo-finance-v1.p.rapidapi.com')
-      .set('x-rapidapi-key', '9c3d958d8dmsh2ac330dd3090bcfp115a2ajsndb89619ef50c');
+      .set( 'x-rapidapi-host', 'apidojo-yahoo-finance-v1.p.rapidapi.com')
+      .set('x-rapidapi-key', '231ce5cd62mshb707bfb1b1ad4b1p1a7e8djsnef34f07a32e2');
 
     return this.http.get(`https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-chart?interval=5m&symbol=${symbol}&range=1d&region=US`, { 'headers': headers })
 

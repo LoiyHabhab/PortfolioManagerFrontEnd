@@ -5,10 +5,7 @@
     font-family: 'Courier New', Courier, monospace;
     display:inline-block;
   }
-  section{
-    background-color: darkslategray;
-    border: 1px solid black;
-  }
+  
   /* https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
   aside{
     display: flex;
@@ -16,7 +13,7 @@
     justify-content: space-around;
     background-color: white;
     color: white;
-    background-color: #777;
+    background-color: #243a47!important;
     margin-left:auto;
     margin-right:auto;
     border: 1px solid black;

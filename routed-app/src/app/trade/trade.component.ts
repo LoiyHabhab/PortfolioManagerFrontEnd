@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrentstocksService } from 'src/services/currentstocks.service';
+import { TypicodeService } from 'src/services/typicode.service';
 
 @Component({
   selector: 'app-trade',
@@ -27,7 +28,10 @@ export class TradeComponent implements OnInit {
     'AAPL',
     'TSLA'
   ]
-  constructor(private currentStockService:CurrentstocksService) { }
+
+  searchValue = ''
+  readyToSearch = 0
+  constructor(private currentStockService:CurrentstocksService, private typicodeService:TypicodeService) { }
 
   ngOnInit(): void {
     this.populateCurrentStocks()
@@ -102,10 +106,21 @@ export class TradeComponent implements OnInit {
     var todayD = mm + '/' + dd + '/' + yyyy;
     //this.currentStockService.addTransaction({account_id:this.accountID,b_or_s:'b',date:todayD,price_per_share:values.price,shares:values.shares,stock_name:values.stock_name}).subscribe()
     //this.populateCurrentStocks()
-    setTimeout(function() {
-      //code to be executed after 0.5 second
-      location.reload()
-    }, 500);
+
+    
+    this.typicodeService.updateCash({
+        action: "withdrawalCash", 
+        accountInfo: {accountId: this.accountID, cash: values.price*values.shares} 
+      }).subscribe( (data:any) => {
+        this.ngOnInit();
+      })
+    
+
+
+    // setTimeout(function() {
+    //   //code to be executed after 0.5 second
+    //   //location.reload()
+    // }, 500);
     
 
   }
@@ -126,10 +141,16 @@ export class TradeComponent implements OnInit {
       } 
     }
     //this.populateCurrentStocks()
-    setTimeout(function() {
-      //code to be executed after 0.5 second
-      location.reload()
-    }, 500);
+    this.typicodeService.updateCash({
+      action: "depositCash", 
+      accountInfo: {accountId: this.accountID, cash: values.price*values.shares} 
+    }).subscribe( (data:any) => {
+      this.ngOnInit();
+    })
+    // setTimeout(function() {
+    //   //code to be executed after 0.5 second
+    //   //location.reload()
+    // }, 500);
     
     //console.log("sold")
   }
@@ -138,9 +159,9 @@ export class TradeComponent implements OnInit {
     this.cashBalance+=value
   }
 
-  buyStock(){
-    this.currentStocks[0].shares+=1
-    this.cashBalance-=100
+
+  searchStock(){
+    this.readyToSearch = 1
   }
 
 }

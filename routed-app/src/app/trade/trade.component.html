@@ -1,7 +1,15 @@
+<section>
+  <h4 style="text-align: center; padding-top:2%;">Trade Stocks</h4>
+</section>
 <br>
-
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col">
 <h4>Current Cash Balance: {{currentData.cash|currency:'$'}}</h4>
     <h4>Current Stocks Owned: </h4>
+    <div class="row">
+    <div class="col-6">
     <app-stock-view
     *ngFor="let item of currentStocks; let i=index"
     [stock_name]='item.stock_name'
@@ -15,6 +23,8 @@
     <!-- $event is for custom events -->
     <!-- (sellEvent)='handleSellEvent($event)'> -->
   </app-stock-view>
+</div>
+</div>
   <br>
   <br>
   <h4>Top Stocks:</h4>
@@ -30,8 +40,35 @@
     <!-- $event is for custom events -->
     <!-- (sellEvent)='handleSellEvent($event)'> -->
   </app-stock-view>
+
+  <br>
+  <br>
+  <h4>Other Stocks:</h4>
+  <input type="text" [(ngModel)]='searchValue' placeholder="Stock Symbol">
+  <button (click)='searchStock()' class="btn-primary">Search</button>
+  <br>
+  <br>
+  <app-stock-view
+    [hidden]='!readyToSearch'
+    [stock_name]='searchValue'
+    [account_id]='accountID'
+    [shares]=0
+    [cash]='currentData.cash'
+    (buyEvent)='handleBuyEvent($event)'
+    (sellEvent)='handleSellEvent($event)'
+    >
+
+  </app-stock-view>
 <br>
 <br>
+</div>
+      
+</div>
+</div>
+
+
+
+</section>
 
 
 

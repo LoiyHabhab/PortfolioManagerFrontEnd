@@ -28,7 +28,7 @@ export class StockViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.getStockPrice()
+    this.getStockPrice()
   }
 
   getMaxBuy(){
@@ -45,12 +45,11 @@ export class StockViewComponent implements OnInit {
   }
 
   getStockPrice(){
+    
     this.currentStockService.getStockPrice(this.stock_name)
     .subscribe((data:any)=>{
-      console.log(data)
-      //this.stockPrice = data["chart"]["result"][0]["meta"]["chartPreviousClose"]
+      this.price = data["chart"]["result"][0]["meta"]["chartPreviousClose"]
     })
-    
   }
 
 }
