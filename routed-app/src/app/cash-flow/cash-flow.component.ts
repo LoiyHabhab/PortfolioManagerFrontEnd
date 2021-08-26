@@ -19,11 +19,14 @@ export class CashFlowComponent implements OnInit {
   accountId:number = 1;
   reportData:any = []
   randoData:any = []
+  ctx:any
+  canvas:any
+  ctx2:any
+  canvas2:any
   checkBoxAction = CheckBoxAction
   currentlyChecked?:CheckBoxAction
-  myChart:Chart = new Chart('doughnut',this.reportData);
+  //myChart:Chart = new Chart('doughnut',this.reportData);
   //stocksChart:Chart = new Chart('doughnut', this.randoData);
-  
   
 
   currentStocks: Array<{
@@ -59,13 +62,13 @@ export class CashFlowComponent implements OnInit {
     this.getAccountBalances()
     this.populateCurrentStocks()
     console.log(this.accountId)
-    setTimeout(() => this.createCashChart(), 500);
-    //setTimeout(() => this.createStocksChart(), 500);
-    //this.createChart()
     
+    setTimeout(() => this.createCashChart(), 500);
+    setTimeout(() => this.createStocksChart(), 500);
+    //this.createChart()   
   }
   createCashChart() {
-    if (this.myChart){this.myChart.destroy();}
+    //if (this.myChart){this.myChart.destroy();}
 
     let netWorthData = {
       labels: [
@@ -83,8 +86,9 @@ export class CashFlowComponent implements OnInit {
       }]
   
     }
-
-    this.myChart = new Chart('myCanvasId',{
+    this.canvas = document.getElementById('myCanvasId');
+    this.ctx = this.canvas.getContext('2d');
+    var myChart = new Chart(this.ctx,{
       type:'doughnut',
       data: netWorthData,
       options:{
@@ -93,40 +97,42 @@ export class CashFlowComponent implements OnInit {
     }
     })
   }
-  // createStocksChart() {
-  //   if (this.stocksChart){this.stocksChart.destroy();}
+  createStocksChart() {
+    //if (this.stocksChart){this.stocksChart.destroy();}
 
-  //   let labels:string[] = []
-  //   let data:number[] = []
+    let labels:string[] = []
+    let data:number[] = []
 
-  //   this.currentStocks.forEach(stock => {
-  //     labels.push(stock.stock_name)
-  //     data.push(stock.shares * stock.price)
+    this.currentStocks.forEach(stock => {
+      labels.push(stock.stock_name)
+      data.push(stock.shares * stock.price)
 
-  //   });
+    });
 
-  //   let StockData = {
-  //     labels: labels,
-  //     datasets: [{
-  //       data: data,
-  //       backgroundColor: [
-  //         'rgb(255, 99, 132)',
-  //         'rgb(54, 162, 235)',
-  //       ],
-  //       hoverOffset: 4
-  //     }]
+    let StockData = {
+      labels: labels,
+      datasets: [{
+       // data: data,
+       data: [12, 19, 3, 5, 2, 3], //temp data for now
+        backgroundColor: [
+          'rgb(255, 99, 132)',
+          'rgb(54, 162, 235)',
+        ],
+        hoverOffset: 4
+      }]
   
-  //   }
-
-  //   this.stocksChart = new Chart('StockChart',{
-  //     type:'doughnut',
-  //     data: StockData,
-  //     options:{
-  //       "responsive": true,
-  //     "maintainAspectRatio": false
-  //   }
-  //   })
-  // }
+    }
+    this.canvas2 = document.getElementById('stocksChart');
+    this.ctx2 = this.canvas2.getContext('2d');
+    var stocksChart = new Chart(this.ctx2,{
+      type:'doughnut',
+      data: StockData,
+      options:{
+        "responsive": true,
+      "maintainAspectRatio": false
+    }
+    })
+  }
 
   getAccountBalances() {
     this.typicodeService.getLatestAccountDataById({id: this.accountId})

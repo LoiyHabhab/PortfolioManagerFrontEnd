@@ -1,79 +1,80 @@
 <body>
-<section>
-    <div class="container" id="cash_flow">
-        <div class="row">
-            <form id="labels" class="userId">
-                User ID (1-4)
-                <input type='number' min="1" max="4" [(ngModel)]='updateCash.id' name='id' />
-                <button (click)='updateUserId()' class="btn-primary">Go</button>
-            </form>
-            <div class="col-6">
-                <div class="row">
-                    <div class="col-6">
-                        <br/>
-                        <h3 id="labels">Net Worth</h3>
-                        <h5 id="labels">Total Balance: {{(TotalInvestments+AccountBalance).toFixed(2)}}</h5>
-                        <p id="labels">Cash: {{AccountBalance}} <br/> Investments: {{TotalInvestments.toFixed(2)}}</p>
-                    </div>
-                    <div class="col-6">  
-                        <canvas id="myCanvasId" width="200" height="200">{{myChart}}</canvas>
-                    </div>
-                </div>
-                <div id="labels">
-                    <div >
-                        <h4>Current Stocks Owned </h4>
-                        <div id="stocks">
-                            <app-stock-card
-                                *ngFor="let item of currentStocks; let i=index"
-                                [stock_name]='item.stock_name'
-                                [account_id]='item.account_id'
-                                [shares]='item.shares'
-                                [index]='i'
-                                [id]='item.id'
-                                (calculatePricesEvent)='handleStockPricesEvent($event)'
-                            ></app-stock-card>
+    <section>
+        <div class="container" id="cash_flow">
+            <div class="row">
+                <form id="labels" class="userId">
+                    User ID (1-4)
+                    <input type='number' min="1" max="4" [(ngModel)]='updateCash.id' name='id' />
+                    <button (click)='updateUserId()' class="btn-primary">Go</button>
+                </form>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <br/>
+                            <h3 id="labels">Net Worth</h3>
+                            <h5 id="labels">Total Balance: {{(TotalInvestments+AccountBalance).toFixed(2)}}</h5>
+                            <p id="labels">Cash: {{AccountBalance}} <br/> Investments: {{TotalInvestments.toFixed(2)}}</p>
+                        </div>
+                        <div class="col-6">  
+                            <canvas id="myCanvasId" width="200" height="200"></canvas>
                         </div>
                     </div>
-                    <div class="col-6">  
-                        <!-- <canvas id="StockChart" width="200" height="200">{{stocksChart}}</canvas> -->
+                    <div id="labels">
+                        <div >
+                            <h4>Current Stocks Owned </h4>
+                            <div id="stocks">
+                                <app-stock-card
+                                    *ngFor="let item of currentStocks; let i=index"
+                                    [stock_name]='item.stock_name'
+                                    [account_id]='item.account_id'
+                                    [shares]='item.shares'
+                                    [index]='i'
+                                    [id]='item.id'
+                                    (calculatePricesEvent)='handleStockPricesEvent($event)'
+                                ></app-stock-card>
+                            </div>
+                        </div>
+                        <div class="col-6">  
+                           
+                            <canvas id="stocksChart" width="200" height="200"></canvas>
+                        </div>
                     </div>
+                    
+    
+                </div>
+                <div class="col-6" id="labels">
+                    <h3>Cash Services</h3>
+                    <br/>
+                    <h4>Total Checking</h4>
+                    <h5>Account Balance: {{AccountBalance}}</h5>
+                    <br/>
+                    <form>
+                        Deposit Cash <input type="checkbox" name="test" 
+                        [checked]="currentlyChecked === checkBoxAction.depositCash" 
+                        (click)="selectCheckBox(checkBoxAction.depositCash)">
+                        Withdrawl Cash <input type="checkbox" name="test" 
+                        [checked]="currentlyChecked === checkBoxAction.withdrawalCash" 
+                        (click)="selectCheckBox(checkBoxAction.withdrawalCash)">
+                        <br/>
+                        Amount:
+                        <input [(ngModel)]='updateCash.amount' name='amount' type="number" step="0.01"/>
+                    </form>
+                    <br>
+                    <p>
+                        <button (click)='updateCashCall()' class="btn-primary">Submit</button>
+                    <p>
+                    
                 </div>
                 
-
             </div>
-            <div class="col-6" id="labels">
-                <h3>Cash Services</h3>
-                <br/>
-                <h4>Total Checking</h4>
-                <h5>Account Balance: {{AccountBalance}}</h5>
-                <br/>
-                <form>
-                    Deposit Cash <input type="checkbox" name="test" 
-                    [checked]="currentlyChecked === checkBoxAction.depositCash" 
-                    (click)="selectCheckBox(checkBoxAction.depositCash)">
-                    Withdrawl Cash <input type="checkbox" name="test" 
-                    [checked]="currentlyChecked === checkBoxAction.withdrawalCash" 
-                    (click)="selectCheckBox(checkBoxAction.withdrawalCash)">
-                    <br/>
-                    Amount:
-                    <input [(ngModel)]='updateCash.amount' name='amount' type="number" step="0.01"/>
-                </form>
-                <br>
-                <p>
-                    <button (click)='updateCashCall()' class="btn-primary">Submit</button>
-                <p>
-                
-            </div>
-            
-        </div>
-
-    </div>
-
-    <!-- <section>
-        <h1>VALUE of tesla stock is </h1>
-        <button (click)='makeServiceCall()'>Go</button>
-        <p>{{reportData ? reportData: null}}</p>
-    </section> -->
     
-</section>
-</body>
+        </div>
+    
+        <!-- <section>
+            <h1>VALUE of tesla stock is </h1>
+            <button (click)='makeServiceCall()'>Go</button>
+            <p>{{reportData ? reportData: null}}</p>
+        </section> -->
+        
+    </section>
+    </body>
