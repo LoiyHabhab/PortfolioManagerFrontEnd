@@ -49,5 +49,35 @@
       </div>
       <div class="col"></div>
     </div>
+    <br/>
+    <section>
+    <div class="row" id="myrow">
+      <h6 id="labels" style="text-align: center;">My Stock Data</h6>
+      <div class="col">       
+        <form>
+         <br/>
+         <a id="labels">Select user id (1-4) to view stock data</a><br/>
+          <input type='number' min="1" max="4" [(ngModel)]='paramObj2.id' name='id' />
+          <br/>
+        </form>
+        <br/>
+        <button (click)='makeServiceCall()' class="btn-primary">Submit</button>
+      </div>
+      <div class="col">
+        <ul id="list">
+            
+          <li *ngFor='let a of accountList' id="labels">{{a}}</li>
+         
+        </ul>
+      </div>
+      <div class="col">
+        <ul id="list">
+        
+         
+          <li *ngFor='let p of accountPercents' id="labels" [ngStyle]='{color:getColor(p)}'>{{p}}</li> 
+        </ul>
+      </div>
+    </div>
+  </section>
   </div>
 </body>
