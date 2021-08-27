@@ -35,7 +35,7 @@ export class CashFlowComponent implements OnInit {
   }> = []
 
   updateCash = {
-    id: 1, 
+    id: this.accountId, 
     action: "",
     amount: 0,
   }
@@ -58,7 +58,6 @@ export class CashFlowComponent implements OnInit {
   ngOnInit(): void {
     this.getAccountBalances()
     this.populateCurrentStocks()
-    console.log(this.accountId)
     setTimeout(() => this.createCashChart(), 500);
     //setTimeout(() => this.createStocksChart(), 500);
     //this.createChart()
@@ -160,7 +159,7 @@ export class CashFlowComponent implements OnInit {
   }
 
   populateCurrentStocks(): void{
-    this.currentStockService.getCurrentStocks(this.updateCash.id)
+    this.currentStockService.getCurrentStocks(this.accountId)
       .subscribe( (data:any)=>{
         this.currentStocks = []
         for(const value in data){
