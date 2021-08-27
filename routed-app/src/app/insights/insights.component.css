@@ -1,6 +1,8 @@
 body{
     background-color: #091748!important;
     padding-bottom: 20px;
+    margin:auto;
+    overflow:scroll;
 }
 .table{
     border-color: rgb(219, 219, 219);
@@ -37,6 +39,7 @@ select{
 }
 .row{
     background-color: #1a307ac2; padding-bottom:10px; padding-top:10px;
+    margin:auto;
 }
 
 .container{
