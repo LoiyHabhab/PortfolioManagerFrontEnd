@@ -11,9 +11,6 @@ const routes: Routes = [
   {path:'', redirectTo: '/cash-flow', pathMatch:'full'},
   {path:'cash-flow', component:CashFlowComponent},
   {path:'market-movers', component:MarketMoversComponent},
-  {path:'net-worth', component:NetWorthComponent},
-  // how about alternative spelling/names so users can guess their way around
-  {path:'networth', component:NetWorthComponent},
   {path:'insights', component:InsightsComponent},
   {path:'trade', component:TradeComponent},
   // we should catch any route that has not already been matched
