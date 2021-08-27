@@ -16,5 +16,13 @@ body{
 #labels{
     color: rgb(226, 226, 226);
 }
+button{
+    background-color: #0082CD;
+    border-radius: 7px;
+    padding:5px;
+    border-color: #0082CD;
+    padding-left:7px;
+    padding-right: 7px;
+}
 
 

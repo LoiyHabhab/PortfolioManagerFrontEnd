@@ -89,8 +89,9 @@ export class CashFlowComponent implements OnInit {
       data: netWorthData,
       options:{
         "responsive": true,
-      "maintainAspectRatio": false
-    }
+      "maintainAspectRatio": false,
+      "color":'rgb(219, 219, 219)'
+      }
     })
   }
   // createStocksChart() {
