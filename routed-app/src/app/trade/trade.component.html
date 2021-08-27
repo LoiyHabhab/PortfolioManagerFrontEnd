@@ -9,10 +9,17 @@
   <div class="container">
     
 <h4 id="labels">Current Cash Balance: {{currentData.cash|currency:'$'}}</h4>
+<form id="labels" class="userId">
+  User ID (1-4)
+  <input type='number' min="1" max="4" [(ngModel)]='accountID' name='id' />
+  <button (click)='updateUserId()' class="btn-primary" style="margin-left: 5px;">Go</button>
+</form>
 <hr>
     <h4 id="labels">Current Stocks Owned: </h4>
     
-    <div class="col-10">
+    <div class="row" id="myrow">
+      <div class="col">
+        <div id="stocks">
     <app-stock-view
     *ngFor="let item of currentStocks; let i=index"
     [stock_name]='item.stock_name'
@@ -27,7 +34,8 @@
     <!-- (sellEvent)='handleSellEvent($event)'> -->
   </app-stock-view>
 </div>
-
+    </div>
+  </div>
 
   <br>
   <br>
@@ -35,7 +43,9 @@
 
   <h4 id="labels">Top Stocks:</h4>
   
-    <div class="col-14">
+  <div class="row" id="myrow">
+    <div class="col">
+      <div id="stocks">
   <app-stock-view
     *ngFor="let item of codes; let i=index"
     [stock_name]='item'
@@ -49,6 +59,8 @@
     <!-- (sellEvent)='handleSellEvent($event)'> -->
   </app-stock-view>
 </div>
+    </div>
+  </div>
 
   <br>
   <br>
