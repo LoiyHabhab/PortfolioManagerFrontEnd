@@ -18,7 +18,7 @@ export class InsightsComponent implements OnInit {
    reportData:any = [] // this is where our returned data from the API will go
    formatedData: any= [];
    myChart:Chart = new Chart('line',this.reportData);
-   paramObj = {timePeriod:'lastweek', id:1, currentDate:'2021-08-16'}
+   paramObj = {timePeriod:'lastweek', id:1, currentDate:'2021-08-27'}
    valType ='networth'
    
   // we need access to the service
