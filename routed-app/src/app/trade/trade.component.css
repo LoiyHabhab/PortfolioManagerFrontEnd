@@ -1,6 +1,13 @@
 body{
     background-color: #091748!important;
 }
+#myrow{
+    background-color: #1a307ac2; padding-bottom:20px; padding-top:10px
+}
+#stocks {
+    margin: auto;
+    text-align: center;
+}
 .table{
     border-color: rgb(219, 219, 219);
     color:rgb(219, 219, 219);
