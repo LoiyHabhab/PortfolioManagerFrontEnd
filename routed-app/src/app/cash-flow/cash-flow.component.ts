@@ -51,14 +51,14 @@ export class CashFlowComponent implements OnInit {
 
   @Input() AccountBalance:number = 0
   @Input() NetWorth:number = 0
-  @Input() TotalInvestments:number = 1200
+  @Input() TotalInvestments:number = 0
   
 
 
   ngOnInit(): void {
     this.getAccountBalances()
     this.populateCurrentStocks()
-    setTimeout(() => this.createCashChart(), 500);
+    setTimeout(() => this.createCashChart(), 3000);
     //setTimeout(() => this.createStocksChart(), 500);
     //this.createChart()
     
