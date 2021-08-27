@@ -32,6 +32,7 @@ h1,h2,h3,h4,h5,h6, form, p {
 
 body{
     background-color: #091748!important;
+    padding-bottom: 25px;
 }
 .table{
     border-color: rgb(219, 219, 219);
@@ -75,7 +76,7 @@ select{
 }
 
 #myrow{
-    background-color: #1a307ac2; padding-bottom:20px; padding-top:10px
+    background-color: #1a307ac2; padding-bottom:20px; padding-top:10px; margin-top: 2%;
 }
 
 .card{
